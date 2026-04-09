@@ -243,14 +243,39 @@ header {
     box-shadow: 0 6px 20px rgba(227, 28, 37, 0.4);
 }
 
-.btn-ifood {
-    background: #ea1d2c;
-    box-shadow: 0 4px 14px 0 rgba(234, 29, 44, 0.3);
+.delivery-btns {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
 }
 
-.btn-ifood:hover {
-    background: #c51825;
-    box-shadow: 0 6px 20px rgba(234, 29, 44, 0.4);
+.btn-delivery {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--white);
+    transition: var(--transition);
+}
+
+.btn-delivery.ifood {
+    background: #ea1d2c;
+    box-shadow: 0 4px 10px rgba(234, 29, 44, 0.2);
+}
+
+.btn-delivery.nine-nine {
+    background: #FFD200;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(255, 210, 0, 0.2);
+}
+
+.btn-delivery:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .hero-btns {
