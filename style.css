@@ -388,9 +388,10 @@ header {
 
 /* Footer */
 footer {
-    background: var(--dark);
-    color: var(--white);
+    background: var(--bg-light);
+    color: var(--text);
     padding: 6rem 5% 2rem;
+    border-top: 1px solid var(--border);
 }
 
 .footer-content {
@@ -405,14 +406,14 @@ footer {
     font-size: 1.4rem;
     font-weight: 700;
     margin-bottom: 2rem;
-    color: var(--primary);
+    color: var(--secondary);
     letter-spacing: -0.5px;
 }
 
-.footer-info p {
+.footer-info p, .footer-hours p {
     margin-bottom: 1.25rem;
     font-size: 1rem;
-    color: #AAA;
+    color: var(--text-muted);
     display: flex;
     align-items: center;
     gap: 12px;
@@ -423,17 +424,12 @@ footer {
     font-size: 1.1rem;
 }
 
-.footer-hours p {
-    color: #AAA;
-    font-size: 1rem;
-}
-
 .footer-bottom {
     text-align: center;
     padding-top: 3rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid var(--border);
     font-size: 0.9rem;
-    color: #666;
+    color: var(--text-muted);
 }
 
 /* Responsive */
