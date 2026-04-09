@@ -3,7 +3,7 @@ const menuItems = [
         id: 1,
         name: "Pastel de Carne",
         category: "salgados",
-        price: 14.00,
+        price: 12.00,
         description: "Carne moída selecionada, temperada com ervas finas e azeitonas.",
         image: "imgspasteis/pasteldecarne.png"
     },
@@ -11,7 +11,7 @@ const menuItems = [
         id: 2,
         name: "Pastel de Queijo",
         category: "salgados",
-        price: 13.00,
+        price: 12.00,
         description: "Muçarela de alta qualidade derretida com um toque de orégano.",
         image: "imgspasteis/pastelqueijo.png"
     },
@@ -19,7 +19,7 @@ const menuItems = [
         id: 3,
         name: "Pastel de Presunto e Queijo",
         category: "salgados",
-        price: 14.00,
+        price: 12.00,
         description: "A clássica combinação de presunto defumado e muçarela derretida.",
         image: "imgspasteis/pastelpizza.png"
     },
@@ -27,7 +27,7 @@ const menuItems = [
         id: 4,
         name: "Pastel de Calabresa",
         category: "salgados",
-        price: 14.00,
+        price: 12.00,
         description: "Calabresa moída com cebola e tempero especial da casa.",
         image: "imgspasteis/pastelcalabresa.png"
     },
