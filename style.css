@@ -243,63 +243,33 @@ header {
     box-shadow: 0 6px 20px rgba(227, 28, 37, 0.4);
 }
 
-/* Barra de Delivery Flutuante */
-.floating-delivery {
-    position: fixed;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+.btn-square {
+    width: 54px;
+    height: 54px;
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-    z-index: 1001;
-}
-
-.fd-item {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-radius: var(--radius-md);
     text-decoration: none;
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 700;
-    transition: var(--transition);
-    box-shadow: var(--shadow-md);
-    border: 2px solid white;
-}
-
-.fd-item i {
     font-size: 1.2rem;
-    margin-bottom: 2px;
+    color: white;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
 }
 
-.fd-item.ifood {
+.btn-square.ifood {
     background: #ea1d2c;
 }
 
-.fd-item.nine-nine {
+.btn-square.nine-nine {
     background: #FFD200;
     color: #333;
 }
 
-.fd-item:hover {
-    transform: scale(1.1) translateX(-5px);
-    box-shadow: var(--shadow-lg);
-}
-
-/* Esconde o texto no mobile se ficar muito apertado */
-@media (max-width: 480px) {
-    .fd-item span {
-        display: none;
-    }
-    .fd-item {
-        width: 50px;
-        height: 50px;
-    }
+.btn-square:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    filter: brightness(1.1);
 }
 
 .hero-btns {
