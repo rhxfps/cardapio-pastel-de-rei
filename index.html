@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastel de Rei | O Melhor Pastel da Cidade</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Yellowtail&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logopastel.png" alt="Pastel de Rei Logo" class="logo-img">
+                <h1>Pastel de <span>Rei</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#cardapio">Cardápio</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <span class="hero-tag">Sabor Artesanal</span>
+                <h2>O Melhor Pastel da Cidade</h2>
+                <p>Confira nosso cardápio completo de pasteis artesanais, feitos com ingredientes selecionados e muito carinho.</p>
+                <div class="hero-btns">
+                    <a href="#cardapio" class="btn">Explorar Menu</a>
+                </div>
+            </div>
+            <div class="hero-decoration"></div>
+        </section>
+
+        <section id="cardapio" class="menu-section">
+            <h2 class="section-title">Nosso Cardápio</h2>
+            
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="todos">Todos</button>
+                <button class="filter-btn" data-filter="salgados">Salgados</button>
+                <button class="filter-btn" data-filter="doces">Doces</button>
+                <button class="filter-btn" data-filter="bebidas">Bebidas</button>
+            </div>
+
+            <div class="menu-grid" id="menu-grid">
+                <!-- Os itens do cardápio serão carregados via JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <footer id="contato">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Pastel de Rei</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Rua dos Sabores, 123 - Centro</p>
+                <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
+                <p><i class="fab fa-instagram"></i> @pastelderei</p>
+            </div>
+            <div class="footer-hours">
+                <h3>Horário de Funcionamento</h3>
+                <p>Terça a Domingo: 18:00 - 23:30</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Pastel de Rei. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
