@@ -38,22 +38,6 @@ const menuItems = [
         price: 16.00,
         description: "O legítimo doce de leite mineiro com toque de canela.",
         image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1000&auto=format&fit=crop"
-    },
-    {
-        id: 6,
-        name: "Caldo de Cana Gelado",
-        category: "bebidas",
-        price: 10.00,
-        description: "Extraído na hora, servido bem gelado com opção de limão ou abacaxi.",
-        image: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?q=80&w=1000&auto=format&fit=crop"
-    },
-    {
-        id: 7,
-        name: "Suco Natural",
-        category: "bebidas",
-        price: 12.00,
-        description: "Laranja, Limão ou Maracujá. 100% fruta, sem conservantes.",
-        image: "https://images.unsplash.com/photo-1544145945-f904253d0c7b?q=80&w=1000&auto=format&fit=crop"
     }
 ];
 
