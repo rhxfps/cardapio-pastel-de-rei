@@ -1,30 +1,38 @@
 const menuItems = [
     {
         id: 1,
-        name: "Carne Premium",
+        name: "Pastel de Carne",
         category: "salgados",
         price: 14.00,
-        description: "Carne moída selecionada, temperada com ervas finas e azeitonas chilenas.",
-        image: "https://images.unsplash.com/photo-1626074353765-517a681e40be?q=80&w=1000&auto=format&fit=crop"
+        description: "Carne moída selecionada, temperada com ervas finas e azeitonas.",
+        image: "imgspasteis/pasteldecarne.png"
     },
     {
         id: 2,
-        name: "Quatro Queijos",
+        name: "Pastel de Queijo",
         category: "salgados",
         price: 13.00,
-        description: "Blend especial de muçarela, provolone, parmesão e catupiry original.",
-        image: "https://images.unsplash.com/photo-1628815870980-f436169ad0ca?q=80&w=1000&auto=format&fit=crop"
+        description: "Muçarela de alta qualidade derretida com um toque de orégano.",
+        image: "imgspasteis/pastelqueijo.png"
     },
     {
         id: 3,
-        name: "Frango com Catupiry",
+        name: "Pastel de Presunto e Queijo",
         category: "salgados",
         price: 14.00,
-        description: "Frango desfiado suculento com o autêntico requeijão Catupiry.",
-        image: "https://images.unsplash.com/photo-1619194472461-a129d2b6324c?q=80&w=1000&auto=format&fit=crop"
+        description: "A clássica combinação de presunto defumado e muçarela derretida.",
+        image: "imgspasteis/pastelpizza.png"
     },
     {
         id: 4,
+        name: "Pastel de Calabresa",
+        category: "salgados",
+        price: 14.00,
+        description: "Calabresa moída com cebola e tempero especial da casa.",
+        image: "imgspasteis/pastelcalabresa.png"
+    },
+    {
+        id: 5,
         name: "Nutella com Morango",
         category: "doces",
         price: 18.00,
@@ -32,7 +40,7 @@ const menuItems = [
         image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=1000&auto=format&fit=crop"
     },
     {
-        id: 5,
+        id: 6,
         name: "Doce de Leite Mineiro",
         category: "doces",
         price: 16.00,
