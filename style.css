@@ -243,6 +243,16 @@ header {
     box-shadow: 0 6px 20px rgba(227, 28, 37, 0.4);
 }
 
+.btn-ifood {
+    background: #ea1d2c;
+    box-shadow: 0 4px 14px 0 rgba(234, 29, 44, 0.3);
+}
+
+.btn-ifood:hover {
+    background: #c51825;
+    box-shadow: 0 6px 20px rgba(234, 29, 44, 0.4);
+}
+
 .hero-btns {
     display: flex;
     justify-content: center;
