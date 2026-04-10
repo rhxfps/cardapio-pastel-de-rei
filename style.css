@@ -775,6 +775,39 @@ footer {
     font-size: 1.1rem;
 }
 
+.footer-payments h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--secondary);
+    letter-spacing: -0.5px;
+}
+
+.payment-methods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.payment-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.6rem 0.9rem;
+    border-radius: 999px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--dark);
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.payment-pill i {
+    color: var(--secondary);
+    font-size: 1.05rem;
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: 3rem;
