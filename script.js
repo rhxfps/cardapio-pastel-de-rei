@@ -3,6 +3,7 @@ const menuItems = [
         id: 12,
         name: "Coca-Cola 350ml",
         category: "bebidas",
+        type: "refrigerante",
         price: 6.00,
         description: "A clássica Coca-Cola bem gelada.",
         image: "imgspasteis/cocacola.png"
@@ -59,6 +60,7 @@ const menuItems = [
         id: 7,
         name: "Energético TNT Original 473ml",
         category: "bebidas",
+        type: "energetico",
         price: 12.00,
         description: "Energia pura para qualquer hora do dia.",
         image: "imgspasteis/energeticotntoriginal.png"
@@ -67,6 +69,7 @@ const menuItems = [
         id: 8,
         name: "Energético TNT Maçã Verde 473ml",
         category: "bebidas",
+        type: "energetico",
         price: 12.00,
         description: "Sabor refrescante de maçã verde com a energia do TNT.",
         image: "imgspasteis/energeticotntmacaverd.png"
@@ -75,6 +78,7 @@ const menuItems = [
         id: 9,
         name: "Energético TNT Juice Manga 473ml",
         category: "bebidas",
+        type: "energetico",
         price: 12.00,
         description: "O sabor tropical da manga com o boost que você precisa.",
         image: "imgspasteis/energeticotntjuicemanga.png"
@@ -83,6 +87,7 @@ const menuItems = [
         id: 10,
         name: "Energético TNT Açaí com Guaraná 473ml",
         category: "bebidas",
+        type: "energetico",
         price: 12.00,
         description: "A energia brasileira do açaí e guaraná.",
         image: "imgspasteis/energeticotnacaicomguarana.png"
@@ -91,6 +96,7 @@ const menuItems = [
         id: 11,
         name: "Energético TNT Tangirina 473ml",
         category: "bebidas",
+        type: "energetico",
         price: 12.00,
         description: "Sabor cítrico e marcante de tangerina.",
         image: "imgspasteis/energeticotnttangirina.png"
@@ -101,6 +107,8 @@ const menuItems = [
 const menuGrid = document.getElementById('menu-grid');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const themeToggle = document.getElementById('theme-toggle');
+const subFilterContainer = document.getElementById('sub-filter-container');
+const subFilterBtns = document.querySelectorAll('.sub-filter-btn');
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
@@ -136,12 +144,16 @@ function updateThemeIcon(theme) {
 }
 
 // Render Menu
-function renderMenu(category) {
+function renderMenu(category, subCategory = 'todos') {
     menuGrid.innerHTML = '';
     
-    const filteredItems = category === 'todos' 
+    let filteredItems = category === 'todos' 
         ? menuItems 
         : menuItems.filter(item => item.category === category);
+
+    if (category === 'bebidas' && subCategory !== 'todos') {
+        filteredItems = filteredItems.filter(item => item.type === subCategory);
+    }
 
     filteredItems.forEach(item => {
         const itemCard = `
@@ -168,6 +180,27 @@ filterBtns.forEach(btn => {
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const category = btn.getAttribute('data-filter');
+        
+        // Show/Hide sub-filters for beverages
+        if (category === 'bebidas') {
+            subFilterContainer.classList.add('active');
+            // Reset sub-filters to 'todos' when clicking main 'Bebidas'
+            subFilterBtns.forEach(b => b.classList.remove('active'));
+            subFilterBtns[0].classList.add('active');
+        } else {
+            subFilterContainer.classList.remove('active');
+        }
+
         renderMenu(category);
+    });
+});
+
+// Sub-filter Functionality
+subFilterBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        subFilterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const subCategory = btn.getAttribute('data-subfilter');
+        renderMenu('bebidas', subCategory);
     });
 });
