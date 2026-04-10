@@ -276,7 +276,15 @@ function sendOrder() {
     message += "Por favor, informe o endereço de entrega ou se deseja retirar.";
 
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(message)}`;
+    
+    // Open WhatsApp
     window.open(whatsappUrl, '_blank');
+
+    // Clear cart
+    cart = [];
+    updateCart();
+    cartModal.classList.remove('active');
+    showToast('Pedido enviado com sucesso!');
 }
 
 // Theme Logic
