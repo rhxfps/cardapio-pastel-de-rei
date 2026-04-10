@@ -15,7 +15,7 @@ const menuItems = [
         type: "refrigerante",
         price: 8.00,
         description: "Coca-Cola original 600ml bem gelada.",
-        image: "imgspasteis/cocacola600.png"
+        image: "imgspasteis/coca.png"
     },
     {
         id: 14,
@@ -24,7 +24,7 @@ const menuItems = [
         type: "refrigerante",
         price: 6.00,
         description: "O autêntico sabor do guaraná em lata.",
-        image: "imgspasteis/guarana350.png"
+        image: "imgspasteis/guarananantartida.png"
     },
     {
         id: 15,
@@ -33,7 +33,7 @@ const menuItems = [
         type: "refrigerante",
         price: 6.00,
         description: "Fanta Laranja refrescante em lata.",
-        image: "imgspasteis/fantalaranja350.png"
+        image: "imgspasteis/fantalaranja.png"
     },
     {
         id: 1,
