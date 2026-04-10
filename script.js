@@ -46,6 +46,30 @@ const menuItems = [
         price: 16.00,
         description: "O legítimo doce de leite mineiro com toque de canela.",
         image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+        id: 7,
+        name: "Coca-Cola 350ml",
+        category: "bebidas",
+        price: 6.00,
+        description: "Lata gelada para acompanhar seu pastel.",
+        image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+        id: 8,
+        name: "Suco de Laranja Natural",
+        category: "bebidas",
+        price: 10.00,
+        description: "Suco natural feito na hora, refrescante e saudável.",
+        image: "https://images.unsplash.com/photo-1613478223719-2ab802602423?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+        id: 9,
+        name: "Água Mineral 500ml",
+        category: "bebidas",
+        price: 4.00,
+        description: "Com ou sem gás.",
+        image: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?q=80&w=1000&auto=format&fit=crop"
     }
 ];
 
