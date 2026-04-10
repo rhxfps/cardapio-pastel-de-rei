@@ -1,5 +1,13 @@
 const menuItems = [
     {
+        id: 12,
+        name: "Coca-Cola 350ml",
+        category: "bebidas",
+        price: 6.00,
+        description: "A clássica Coca-Cola bem gelada.",
+        image: "imgspasteis/cocacola.png"
+    },
+    {
         id: 1,
         name: "Pastel de Carne",
         category: "salgados",
@@ -86,14 +94,6 @@ const menuItems = [
         price: 12.00,
         description: "Sabor cítrico e marcante de tangerina.",
         image: "imgspasteis/energeticotnttangirina.png"
-    },
-    {
-        id: 12,
-        name: "Coca-Cola 350ml",
-        category: "bebidas",
-        price: 6.00,
-        description: "A clássica Coca-Cola bem gelada.",
-        image: "imgspasteis/cocacola.png"
     }
 ];
 
