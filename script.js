@@ -9,6 +9,33 @@ const menuItems = [
         image: "imgspasteis/cocacola.png"
     },
     {
+        id: 13,
+        name: "Coca-Cola 600ml",
+        category: "bebidas",
+        type: "refrigerante",
+        price: 8.00,
+        description: "Coca-Cola original 600ml bem gelada.",
+        image: "imgspasteis/cocacola600.png"
+    },
+    {
+        id: 14,
+        name: "Guaraná Antarctica 350ml",
+        category: "bebidas",
+        type: "refrigerante",
+        price: 6.00,
+        description: "O autêntico sabor do guaraná em lata.",
+        image: "imgspasteis/guarana350.png"
+    },
+    {
+        id: 15,
+        name: "Fanta Laranja 350ml",
+        category: "bebidas",
+        type: "refrigerante",
+        price: 6.00,
+        description: "Fanta Laranja refrescante em lata.",
+        image: "imgspasteis/fantalaranja350.png"
+    },
+    {
         id: 1,
         name: "Pastel de Carne",
         category: "salgados",
@@ -80,7 +107,7 @@ const menuItems = [
         category: "bebidas",
         type: "energetico",
         price: 12.00,
-        description: "O sabor tropical da manga com o boost que você precisa.",
+        description: "O sabor tropical da manga with o boost que você precisa.",
         image: "imgspasteis/energeticotntjuicemanga.png"
     },
     {
@@ -147,9 +174,13 @@ function updateThemeIcon(theme) {
 function renderMenu(category, subCategory = 'todos') {
     menuGrid.innerHTML = '';
     
-    let filteredItems = category === 'todos' 
-        ? menuItems 
-        : menuItems.filter(item => item.category === category);
+    let filteredItems;
+    if (category === 'todos') {
+        // Only show food (salgados and doces) as requested
+        filteredItems = menuItems.filter(item => item.category === 'salgados' || item.category === 'doces');
+    } else {
+        filteredItems = menuItems.filter(item => item.category === category);
+    }
 
     if (category === 'bebidas' && subCategory !== 'todos') {
         filteredItems = filteredItems.filter(item => item.type === subCategory);
