@@ -136,12 +136,148 @@ const filterBtns = document.querySelectorAll('.filter-btn');
 const themeToggle = document.getElementById('theme-toggle');
 const subFilterContainer = document.getElementById('sub-filter-container');
 const subFilterBtns = document.querySelectorAll('.sub-filter-btn');
+const cartModal = document.getElementById('cart-modal');
+const cartToggle = document.getElementById('cart-toggle');
+const closeCart = document.getElementById('close-cart');
+const cartItemsContainer = document.getElementById('cart-items');
+const cartCount = document.getElementById('cart-count');
+const cartTotal = document.getElementById('cart-total-price');
+const checkoutBtn = document.getElementById('checkout-btn');
+
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+const WHATSAPP_NUMBER = "5511966308878";
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     renderMenu('todos');
     initTheme();
+    updateCart();
+    initCartEvents();
 });
+
+// Cart Logic
+function initCartEvents() {
+    cartToggle.addEventListener('click', () => cartModal.classList.add('active'));
+    closeCart.addEventListener('click', () => cartModal.classList.remove('active'));
+    
+    // Close cart if clicking outside the content
+    cartModal.addEventListener('click', (e) => {
+        if (e.target === cartModal) cartModal.classList.remove('active');
+    });
+
+    checkoutBtn.addEventListener('click', sendOrder);
+}
+
+function addToCart(itemId) {
+    const item = menuItems.find(i => i.id === itemId);
+    const cartItem = cart.find(i => i.id === itemId);
+
+    if (cartItem) {
+        cartItem.quantity++;
+    } else {
+        cart.push({ ...item, quantity: 1 });
+    }
+
+    updateCart();
+    showToast(`${item.name} adicionado!`);
+}
+
+function removeFromCart(itemId) {
+    cart = cart.filter(i => i.id !== itemId);
+    updateCart();
+}
+
+function changeQuantity(itemId, delta) {
+    const item = cart.find(i => i.id === itemId);
+    if (item) {
+        item.quantity += delta;
+        if (item.quantity <= 0) {
+            removeFromCart(itemId);
+        } else {
+            updateCart();
+        }
+    }
+}
+
+function updateCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCartItems();
+    updateCartCount();
+    updateCartTotal();
+}
+
+function renderCartItems() {
+    cartItemsContainer.innerHTML = '';
+    
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p class="empty-cart">Seu carrinho está vazio.</p>';
+        return;
+    }
+
+    cart.forEach(item => {
+        const itemHtml = `
+            <div class="cart-item">
+                <div class="cart-item-img">
+                    <img src="${item.image}" alt="${item.name}">
+                </div>
+                <div class="cart-item-info">
+                    <h4>${item.name}</h4>
+                    <span class="cart-item-price">R$ ${item.price.toFixed(2)}</span>
+                </div>
+                <div class="cart-item-controls">
+                    <button onclick="changeQuantity(${item.id}, -1)">-</button>
+                    <span>${item.quantity}</span>
+                    <button onclick="changeQuantity(${item.id}, 1)">+</button>
+                    <button class="remove-item" onclick="removeFromCart(${item.id})">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        `;
+        cartItemsContainer.innerHTML += itemHtml;
+    });
+}
+
+function updateCartCount() {
+    const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+    cartCount.textContent = totalItems;
+}
+
+function updateCartTotal() {
+    const total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+    cartTotal.textContent = `R$ ${total.toFixed(2)}`;
+}
+
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.classList.add('active'), 100);
+    setTimeout(() => {
+        toast.classList.remove('active');
+        setTimeout(() => toast.remove(), 300);
+    }, 2000);
+}
+
+function sendOrder() {
+    if (cart.length === 0) {
+        showToast('Adicione itens antes de finalizar!');
+        return;
+    }
+
+    let message = "👑 *Novo Pedido - Pastel de Rei* 👑\n\n";
+    cart.forEach(item => {
+        message += `• ${item.quantity}x ${item.name} - R$ ${(item.price * item.quantity).toFixed(2)}\n`;
+    });
+    
+    const total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+    message += `\n*Total: R$ ${total.toFixed(2)}*\n\n`;
+    message += "Por favor, informe o endereço de entrega ou se deseja retirar.";
+
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+}
 
 // Theme Logic
 function initTheme() {
@@ -197,6 +333,9 @@ function renderMenu(category, subCategory = 'todos') {
                     <p>${item.description}</p>
                     <div class="item-price">
                         <span class="price">R$ ${item.price.toFixed(2)}</span>
+                        <button class="add-to-cart-btn" onclick="addToCart(${item.id})">
+                            <i class="fas fa-plus"></i> Adicionar
+                        </button>
                     </div>
                 </div>
             </div>

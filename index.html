@@ -26,8 +26,34 @@
             <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
                 <i class="fas fa-moon"></i>
             </button>
+            <button id="cart-toggle" class="cart-btn" aria-label="Ver carrinho">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </button>
         </nav>
     </header>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Seu Carrinho</h2>
+                <button id="close-cart" class="close-btn">&times;</button>
+            </div>
+            <div id="cart-items" class="cart-items">
+                <!-- Items will be added here -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cart-total-price">R$ 0,00</span>
+                </div>
+                <button id="checkout-btn" class="checkout-btn">
+                    <i class="fab fa-whatsapp"></i> Enviar para WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
 
     <main>
         <section id="inicio" class="hero">
