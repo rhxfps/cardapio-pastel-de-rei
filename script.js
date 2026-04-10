@@ -147,12 +147,22 @@ const checkoutBtn = document.getElementById('checkout-btn');
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 const WHATSAPP_NUMBER = "5511966308878";
 
+let isCartEnabled = true; // Default to true
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('no-cart') && urlParams.get('no-cart') === 'true') {
+        isCartEnabled = false;
+        document.body.classList.add('no-cart-mode'); // Add class to body for CSS hiding
+    }
+
     renderMenu('todos');
     initTheme();
-    updateCart();
-    initCartEvents();
+    if (isCartEnabled) {
+        updateCart();
+        initCartEvents();
+    }
 });
 
 // Cart Logic
@@ -341,9 +351,11 @@ function renderMenu(category, subCategory = 'todos') {
                     <p>${item.description}</p>
                     <div class="item-price">
                         <span class="price">R$ ${item.price.toFixed(2)}</span>
+                        ${isCartEnabled ? `
                         <button class="add-to-cart-btn" onclick="addToCart(${item.id})">
                             <i class="fas fa-plus"></i> Adicionar
                         </button>
+                        ` : ''}
                     </div>
                 </div>
             </div>

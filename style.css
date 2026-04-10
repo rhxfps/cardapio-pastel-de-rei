@@ -432,6 +432,13 @@ header {
     background: var(--hero-bg);
 }
 
+/* Hide cart elements when no-cart-mode is active */
+.no-cart-mode .cart-btn,
+.no-cart-mode .cart-modal,
+.no-cart-mode .add-to-cart-btn {
+    display: none !important;
+}
+
 .hero::before {
     content: '';
     position: absolute;
