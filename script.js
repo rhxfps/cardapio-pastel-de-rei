@@ -49,27 +49,51 @@ const menuItems = [
     },
     {
         id: 7,
-        name: "Coca-Cola 350ml",
+        name: "Energético TNT Original 473ml",
         category: "bebidas",
-        price: 6.00,
-        description: "Lata gelada para acompanhar seu pastel.",
-        image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=1000&auto=format&fit=crop"
+        price: 12.00,
+        description: "Energia pura para qualquer hora do dia.",
+        image: "imgspasteis/energeticotntoriginal.png"
     },
     {
         id: 8,
-        name: "Suco de Laranja Natural",
+        name: "Energético TNT Maçã Verde 473ml",
         category: "bebidas",
-        price: 10.00,
-        description: "Suco natural feito na hora, refrescante e saudável.",
-        image: "https://images.unsplash.com/photo-1613478223719-2ab802602423?q=80&w=1000&auto=format&fit=crop"
+        price: 12.00,
+        description: "Sabor refrescante de maçã verde com a energia do TNT.",
+        image: "imgspasteis/energeticotntmacaverd.png"
     },
     {
         id: 9,
-        name: "Água Mineral 500ml",
+        name: "Energético TNT Juice Manga 473ml",
         category: "bebidas",
-        price: 4.00,
-        description: "Com ou sem gás.",
-        image: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?q=80&w=1000&auto=format&fit=crop"
+        price: 12.00,
+        description: "O sabor tropical da manga com o boost que você precisa.",
+        image: "imgspasteis/energeticotntjuicemanga.png"
+    },
+    {
+        id: 10,
+        name: "Energético TNT Açaí com Guaraná 473ml",
+        category: "bebidas",
+        price: 12.00,
+        description: "A energia brasileira do açaí e guaraná.",
+        image: "imgspasteis/energeticotnacaicomguarana.png"
+    },
+    {
+        id: 11,
+        name: "Energético TNT Tangirina 473ml",
+        category: "bebidas",
+        price: 12.00,
+        description: "Sabor cítrico e marcante de tangerina.",
+        image: "imgspasteis/energeticotnttangirina.png"
+    },
+    {
+        id: 12,
+        name: "Coca-Cola 350ml",
+        category: "bebidas",
+        price: 6.00,
+        description: "A clássica Coca-Cola bem gelada.",
+        image: "imgspasteis/cocacola.png"
     }
 ];
 
