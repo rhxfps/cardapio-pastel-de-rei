@@ -151,8 +151,9 @@ let isCartEnabled = true; // Default to true
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('no-cart') && urlParams.get('no-cart') === 'true') {
+    // Check for no-cart parameter in URL or Hash
+    const fullUrl = window.location.href;
+    if (fullUrl.includes('no-cart=true')) {
         isCartEnabled = false;
         document.body.classList.add('no-cart-mode'); // Add class to body for CSS hiding
     }
