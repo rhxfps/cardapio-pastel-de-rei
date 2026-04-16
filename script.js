@@ -39,7 +39,7 @@ const menuItems = [
         id: 1,
         name: "Pastel de Carne",
         category: "salgados",
-        price: 12.00,
+        price: 13.00,
         description: "Carne moída selecionada, temperada com ervas finas e azeitonas.",
         image: "imgspasteis/pasteldecarne.png"
     },
@@ -47,7 +47,7 @@ const menuItems = [
         id: 2,
         name: "Pastel de Queijo",
         category: "salgados",
-        price: 12.00,
+        price: 13.00,
         description: "Muçarela de alta qualidade derretida com um toque de orégano.",
         image: "imgspasteis/pastelqueijo.png"
     },
@@ -55,7 +55,7 @@ const menuItems = [
         id: 3,
         name: "Pastel de Presunto e Queijo",
         category: "salgados",
-        price: 12.00,
+        price: 13.00,
         description: "A clássica combinação de presunto defumado e muçarela derretida.",
         image: "imgspasteis/pastelpizza.png"
     },
@@ -63,7 +63,7 @@ const menuItems = [
         id: 4,
         name: "Pastel de Calabresa",
         category: "salgados",
-        price: 12.00,
+        price: 13.00,
         description: "Calabresa moída com cebola e tempero especial da casa.",
         image: "imgspasteis/pastelcalabresa.png"
     },
@@ -71,7 +71,7 @@ const menuItems = [
         id: 5,
         name: "Nutella com Morango",
         category: "doces",
-        price: 18.00,
+        price: 13.00,
         description: "Recheio generoso de Nutella com morangos frescos fatiados.",
         image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=1000&auto=format&fit=crop"
     },
@@ -79,7 +79,7 @@ const menuItems = [
         id: 6,
         name: "Doce de Leite Mineiro",
         category: "doces",
-        price: 16.00,
+        price: 13.00,
         description: "O legítimo doce de leite mineiro com toque de canela.",
         image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1000&auto=format&fit=crop"
     },
@@ -88,7 +88,7 @@ const menuItems = [
         name: "Energético TNT Original 473ml",
         category: "bebidas",
         type: "energetico",
-        price: 12.00,
+        price: 8.00,
         description: "Energia pura para qualquer hora do dia.",
         image: "imgspasteis/energeticotntoriginal.png"
     },
@@ -97,7 +97,7 @@ const menuItems = [
         name: "Energético TNT Maçã Verde 473ml",
         category: "bebidas",
         type: "energetico",
-        price: 12.00,
+        price: 8.00,
         description: "Sabor refrescante de maçã verde com a energia do TNT.",
         image: "imgspasteis/energeticotntmacaverd.png"
     },
@@ -106,7 +106,7 @@ const menuItems = [
         name: "Energético TNT Juice Manga 473ml",
         category: "bebidas",
         type: "energetico",
-        price: 12.00,
+        price: 8.00,
         description: "O sabor tropical da manga with o boost que você precisa.",
         image: "imgspasteis/energeticotntjuicemanga.png"
     },
@@ -115,7 +115,7 @@ const menuItems = [
         name: "Energético TNT Açaí com Guaraná 473ml",
         category: "bebidas",
         type: "energetico",
-        price: 12.00,
+        price: 8.00,
         description: "A energia brasileira do açaí e guaraná.",
         image: "imgspasteis/energeticotnacaicomguarana.png"
     },
@@ -124,7 +124,7 @@ const menuItems = [
         name: "Energético TNT Tangirina 473ml",
         category: "bebidas",
         type: "energetico",
-        price: 12.00,
+        price: 8.00,
         description: "Sabor cítrico e marcante de tangerina.",
         image: "imgspasteis/energeticotnttangirina.png"
     },
