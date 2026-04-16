@@ -127,6 +127,42 @@ const menuItems = [
         price: 12.00,
         description: "Sabor cítrico e marcante de tangerina.",
         image: "imgspasteis/energeticotnttangirina.png"
+    },
+    {
+        id: 16,
+        name: "Suco Del Valle Goiaba 290ml",
+        category: "bebidas",
+        type: "suco",
+        price: 7.50,
+        description: "Suco de goiaba Del Valle refrescante.",
+        image: "imgspasteis/delvalegoiaba.png"
+    },
+    {
+        id: 17,
+        name: "Suco Del Valle Manga 290ml",
+        category: "bebidas",
+        type: "suco",
+        price: 7.50,
+        description: "Suco de manga Del Valle refrescante.",
+        image: "imgspasteis/delvalemanga.png"
+    },
+    {
+        id: 18,
+        name: "Suco Del Valle Maracujá 290ml",
+        category: "bebidas",
+        type: "suco",
+        price: 7.50,
+        description: "Suco de maracujá Del Valle refrescante.",
+        image: "imgspasteis/delvalemaracu.png"
+    },
+    {
+        id: 19,
+        name: "Suco Del Valle Pêssego 290ml",
+        category: "bebidas",
+        type: "suco",
+        price: 7.50,
+        description: "Suco de pêssego Del Valle refrescante.",
+        image: "imgspasteis/delvalepessego.png"
     }
 ];
 
