@@ -436,36 +436,7 @@ filterBtns.forEach(btn => {
         
         // Theme switching for Açaí
         if (category === 'acai') {
-            const transitionOverlay = document.getElementById('acai-transition');
-            transitionOverlay.style.display = 'flex';
-            
-            // Start theme change
             document.documentElement.setAttribute('data-theme', 'acai');
-
-            // Fade in overlay
-            setTimeout(() => {
-                transitionOverlay.classList.add('active');
-            }, 10);
-
-            // Trigger berry split and cup appearance
-            setTimeout(() => {
-                transitionOverlay.classList.add('active-anim');
-            }, 600);
-
-            // After animation ends, start moving cup down and scroll
-            setTimeout(() => {
-                transitionOverlay.classList.add('scrolling-down');
-                
-                // Start scrolling the page slightly before the overlay is fully gone
-                setTimeout(() => {
-                    document.getElementById('cardapio').scrollIntoView({ behavior: 'smooth' });
-                }, 200);
-
-                setTimeout(() => {
-                    transitionOverlay.classList.remove('active', 'active-anim', 'scrolling-down');
-                    transitionOverlay.style.display = 'none';
-                }, 1000);
-            }, 3000);
         } else {
             // Restore saved theme (light or dark)
             const savedTheme = localStorage.getItem('theme') || 'light';
