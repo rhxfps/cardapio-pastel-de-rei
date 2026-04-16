@@ -163,6 +163,30 @@ const menuItems = [
         price: 7.50,
         description: "Suco de pêssego Del Valle refrescante.",
         image: "imgspasteis/delvalepessego.png"
+    },
+    {
+        id: 20,
+        name: "Açaí Tradicional 300ml",
+        category: "acai",
+        price: 15.00,
+        description: "Açaí puro e cremoso, perfeito para qualquer hora.",
+        image: "https://images.unsplash.com/photo-1590301157890-4810ed352733?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+        id: 21,
+        name: "Açaí Completo 500ml",
+        category: "acai",
+        price: 22.00,
+        description: "Açaí com banana, granola, leite em pó e leite condensado.",
+        image: "https://images.unsplash.com/photo-1590301157890-4810ed352733?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+        id: 22,
+        name: "Copo da Felicidade Açaí",
+        category: "acai",
+        price: 25.00,
+        description: "Camadas de açaí, Nutella, morango e pedaços de Brownie.",
+        image: "https://images.unsplash.com/photo-1590301157890-4810ed352733?q=80&w=1000&auto=format&fit=crop"
     }
 ];
 
@@ -369,6 +393,8 @@ function renderMenu(category, subCategory = 'todos') {
     if (category === 'todos') {
         // Only show food (salgados and doces) as requested
         filteredItems = menuItems.filter(item => item.category === 'salgados' || item.category === 'doces');
+    } else if (category === 'acai') {
+        filteredItems = menuItems.filter(item => item.category === 'acai');
     } else {
         filteredItems = menuItems.filter(item => item.category === category);
     }
@@ -408,6 +434,15 @@ filterBtns.forEach(btn => {
         btn.classList.add('active');
         const category = btn.getAttribute('data-filter');
         
+        // Theme switching for Açaí
+        if (category === 'acai') {
+            document.documentElement.setAttribute('data-theme', 'acai');
+        } else {
+            // Restore saved theme (light or dark)
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+
         // Show/Hide sub-filters for beverages
         if (category === 'bebidas') {
             subFilterContainer.classList.add('active');
