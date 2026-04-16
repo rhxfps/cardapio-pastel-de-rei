@@ -439,21 +439,27 @@ filterBtns.forEach(btn => {
             const transitionOverlay = document.getElementById('acai-transition');
             transitionOverlay.style.display = 'flex';
             
-            // Allow a small delay to trigger the transition classes
+            // Start theme change
+            document.documentElement.setAttribute('data-theme', 'acai');
+
+            // Fade in overlay
             setTimeout(() => {
                 transitionOverlay.classList.add('active');
-            }, 50);
+            }, 10);
+
+            // Trigger berry split and cup appearance
+            setTimeout(() => {
+                transitionOverlay.classList.add('active-anim');
+            }, 600);
 
             // After animation ends, hide overlay and scroll to menu
             setTimeout(() => {
-                transitionOverlay.classList.remove('active');
+                transitionOverlay.classList.remove('active', 'active-anim');
                 setTimeout(() => {
                     transitionOverlay.style.display = 'none';
                     document.getElementById('cardapio').scrollIntoView({ behavior: 'smooth' });
-                }, 800);
-            }, 2500);
-
-            document.documentElement.setAttribute('data-theme', 'acai');
+                }, 600);
+            }, 3200);
         } else {
             // Restore saved theme (light or dark)
             const savedTheme = localStorage.getItem('theme') || 'light';
