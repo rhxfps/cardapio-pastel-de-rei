@@ -452,14 +452,20 @@ filterBtns.forEach(btn => {
                 transitionOverlay.classList.add('active-anim');
             }, 600);
 
-            // After animation ends, hide overlay and scroll to menu
+            // After animation ends, start moving cup down and scroll
             setTimeout(() => {
-                transitionOverlay.classList.remove('active', 'active-anim');
+                transitionOverlay.classList.add('scrolling-down');
+                
+                // Start scrolling the page slightly before the overlay is fully gone
                 setTimeout(() => {
-                    transitionOverlay.style.display = 'none';
                     document.getElementById('cardapio').scrollIntoView({ behavior: 'smooth' });
-                }, 600);
-            }, 3200);
+                }, 200);
+
+                setTimeout(() => {
+                    transitionOverlay.classList.remove('active', 'active-anim', 'scrolling-down');
+                    transitionOverlay.style.display = 'none';
+                }, 1000);
+            }, 3000);
         } else {
             // Restore saved theme (light or dark)
             const savedTheme = localStorage.getItem('theme') || 'light';
