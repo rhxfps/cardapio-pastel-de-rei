@@ -436,6 +436,23 @@ filterBtns.forEach(btn => {
         
         // Theme switching for Açaí
         if (category === 'acai') {
+            const transitionOverlay = document.getElementById('acai-transition');
+            transitionOverlay.style.display = 'flex';
+            
+            // Allow a small delay to trigger the transition classes
+            setTimeout(() => {
+                transitionOverlay.classList.add('active');
+            }, 50);
+
+            // After animation ends, hide overlay and scroll to menu
+            setTimeout(() => {
+                transitionOverlay.classList.remove('active');
+                setTimeout(() => {
+                    transitionOverlay.style.display = 'none';
+                    document.getElementById('cardapio').scrollIntoView({ behavior: 'smooth' });
+                }, 800);
+            }, 2500);
+
             document.documentElement.setAttribute('data-theme', 'acai');
         } else {
             // Restore saved theme (light or dark)
