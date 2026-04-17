@@ -672,6 +672,33 @@ header {
     box-shadow: var(--shadow-lg);
 }
 
+/* Sem Estoque Styles */
+.menu-item.out-of-stock {
+    opacity: 0.7;
+    filter: grayscale(0.5);
+    pointer-events: none;
+}
+
+.menu-item.out-of-stock .add-to-cart-btn {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.out-of-stock-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--secondary);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    z-index: 2;
+    box-shadow: var(--shadow-md);
+}
+
 .item-img {
     height: 240px;
     width: 100%;

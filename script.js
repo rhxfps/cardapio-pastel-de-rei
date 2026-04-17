@@ -90,7 +90,8 @@ const menuItems = [
         type: "energetico",
         price: 8.00,
         description: "Energia pura para qualquer hora do dia.",
-        image: "imgspasteis/energeticotntoriginal.png"
+        image: "imgspasteis/energeticotntoriginal.png",
+        outOfStock: true
     },
     {
         id: 8,
@@ -126,7 +127,8 @@ const menuItems = [
         type: "energetico",
         price: 8.00,
         description: "Sabor cítrico e marcante de tangerina.",
-        image: "imgspasteis/energeticotnttangirina.png"
+        image: "imgspasteis/energeticotnttangirina.png",
+        outOfStock: true
     },
     {
         id: 16,
@@ -178,7 +180,7 @@ const menuItems = [
         name: "Mocoquinha Chocolate 200ml",
         category: "bebidas",
         type: "outros",
-        price: 4.00,
+        price: 2.00,
         description: "Bebida láctea sabor chocolate Mocoquinha.",
         image: "imgspasteis/mocoquinha.png"
     }
@@ -399,9 +401,10 @@ function renderMenu(category, subCategory = 'todos') {
 
     filteredItems.forEach(item => {
         const itemCard = `
-            <div class="menu-item" data-category="${item.category}">
+            <div class="menu-item ${item.outOfStock ? 'out-of-stock' : ''}" data-category="${item.category}">
                 <div class="item-img">
                     <img src="${item.image}" alt="${item.name}" loading="lazy">
+                    ${item.outOfStock ? '<div class="out-of-stock-badge">Esgotado</div>' : ''}
                 </div>
                 <div class="item-info">
                     <h3>${item.name}</h3>
@@ -409,8 +412,8 @@ function renderMenu(category, subCategory = 'todos') {
                     <div class="item-price">
                         <span class="price">R$ ${item.price.toFixed(2)}</span>
                         ${isCartEnabled ? `
-                        <button class="add-to-cart-btn" onclick="addToCart(${item.id})">
-                            <i class="fas fa-plus"></i> Adicionar
+                        <button class="add-to-cart-btn" onclick="addToCart(${item.id})" ${item.outOfStock ? 'disabled' : ''}>
+                            <i class="fas ${item.outOfStock ? 'fa-times' : 'fa-plus'}"></i> ${item.outOfStock ? 'Indisponível' : 'Adicionar'}
                         </button>
                         ` : ''}
                     </div>
