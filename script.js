@@ -163,6 +163,24 @@ const menuItems = [
         price: 7.50,
         description: "Suco de pêssego Del Valle refrescante.",
         image: "imgspasteis/delvalepessego.png"
+    },
+    {
+        id: 20,
+        name: "Coca-Cola 200ml",
+        category: "bebidas",
+        type: "refrigerante",
+        price: 4.00,
+        description: "Coca-Cola original 200ml bem gelada.",
+        image: "imgspasteis/cocacola200ml.png"
+    },
+    {
+        id: 21,
+        name: "Mocoquinha Chocolate 200ml",
+        category: "bebidas",
+        type: "outros",
+        price: 4.00,
+        description: "Bebida láctea sabor chocolate Mocoquinha.",
+        image: "imgspasteis/mocoquinha.png"
     }
 ];
 
