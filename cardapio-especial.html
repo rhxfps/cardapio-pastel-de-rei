@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="logopastel.png?v=3">
-    <title>Cardápio Premium | Pastel de Rei</title>
+    <title>Pastel de Rei | Experimente o sabor da realeza</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,9 +19,8 @@
                 <h1>Pastel de <span>Rei</span></h1>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html#inicio">Início</a></li>
-                <li><a href="index.html#cardapio">Cardápio Normal</a></li>
-                <li><a href="#cardapio" class="active">Cardápio Premium</a></li>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#cardapio">Cardápio</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
             <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
@@ -38,7 +37,7 @@
     <div id="cart-modal" class="cart-modal">
         <div class="cart-content">
             <div class="cart-header">
-                <h2>Seu Carrinho Premium</h2>
+                <h2>Seu Carrinho</h2>
                 <button id="close-cart" class="close-btn">&times;</button>
             </div>
             <div id="cart-items" class="cart-items">
@@ -59,19 +58,26 @@
     <main>
         <section id="inicio" class="hero">
             <div class="hero-content">
-                <span class="hero-tag">Sabor Premium</span>
-                <h2>Menu Especial de Realeza</h2>
-                <p>Nossos pastéis mais exclusivos, com ingredientes selecionados e o dobro de sabor (e preço).</p>
+                <span class="hero-tag">Sabor Artesanal</span>
+                <h2>Experimente o sabor da realeza</h2>
+                <p>Confira nosso cardápio de pastéis artesanais, feitos com ingredientes selecionados e qualidade digna de um rei.</p>
                 <div class="hero-btns">
-                    <a href="#cardapio" class="btn">Explorar Menu Premium</a>
-                    <a href="index.html" class="btn outline">Voltar ao Normal</a>
+                    <a href="#cardapio" class="btn">Explorar Menu</a>
+                    <a href="#" target="_blank" class="btn-square ifood" title="Pedir no iFood">
+                        <i class="fas fa-motorcycle"></i>
+                        <span>iFood</span>
+                    </a>
+                    <a href="#" target="_blank" class="btn-square nine-nine" title="Pedir no 99Food">
+                        <i class="fas fa-utensils"></i>
+                        <span>99Food</span>
+                    </a>
                 </div>
             </div>
             <div class="hero-decoration"></div>
         </section>
 
         <section id="cardapio" class="menu-section">
-            <h2 class="section-title">Cardápio Premium</h2>
+            <h2 class="section-title">Nosso Cardápio</h2>
             
             <div class="filter-container">
                 <button class="filter-btn active" data-filter="todos">Todos</button>
