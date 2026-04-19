@@ -135,6 +135,23 @@ header {
     color: var(--secondary);
 }
 
+.nav-links a.active {
+    color: var(--secondary);
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a.special-link {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.nav-links a.special-link:hover {
+    color: var(--secondary);
+}
+
 .nav-links a:hover::after {
     width: 100%;
 }
