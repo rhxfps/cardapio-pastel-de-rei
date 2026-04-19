@@ -33,6 +33,19 @@
         </nav>
     </header>
 
+    <!-- Print Header -->
+    <div class="print-header">
+        <img src="logopastel.png" alt="Pastel de Rei Logo">
+        <h1>Pastel de Rei</h1>
+        <p>Estrada São Sebastião, 355</p>
+        <p>WhatsApp: (11) 96630-8878 | @pastelderei</p>
+    </div>
+
+    <!-- Floating Print Button -->
+    <button class="print-trigger" onclick="window.print()" title="Gerar PDF do Cardápio">
+        <i class="fas fa-file-pdf"></i>
+    </button>
+
     <!-- Cart Modal -->
     <div id="cart-modal" class="cart-modal">
         <div class="cart-content">
@@ -129,6 +142,16 @@
         </div>
     </footer>
 
+    <!-- Print Footer -->
+    <div class="print-footer">
+        <p>Este cardápio é apenas para consulta de preços oficiais. Preços sujeitos a alteração sem aviso prévio.</p>
+        <p>Gerado em: <span id="print-date"></span></p>
+    </div>
+
     <script src="script-dobro.js"></script>
+    <script>
+        // Update the print date automatically
+        document.getElementById('print-date').textContent = new Date().toLocaleDateString('pt-BR');
+    </script>
 </body>
 </html>
