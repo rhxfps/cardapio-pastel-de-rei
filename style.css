@@ -856,7 +856,7 @@ footer {
     display: none;
     background: #4B0082;
     background: linear-gradient(135deg, #4B0082 0%, #800080 100%);
-    border-radius: 0; /* Removido para preencher as laterais */
+    border-radius: 0;
     padding: 3rem 0;
     color: white;
     margin-top: 2rem;
@@ -864,8 +864,7 @@ footer {
     position: relative;
     overflow: hidden;
     width: 100vw;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    margin-left: calc(-50vw + 50%);
 }
 
 .acai-builder.active {
