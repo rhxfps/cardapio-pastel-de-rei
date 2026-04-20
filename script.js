@@ -186,27 +186,19 @@ const menuItems = [
     },
     {
         id: 101,
-        name: "Copo Açaí 300ml",
+        name: "Copo Açaí Pequeno 300ml",
         category: "acai",
         price: 15.00,
-        description: "Açaí cremoso de 300ml. Monte do seu jeito com nossos adicionais!",
-        image: "imgspasteis/acai.png"
+        description: "Açaí cremoso de 300ml. Monte do seu jeito!",
+        image: "imgspasteis/acai2.png"
     },
     {
         id: 102,
-        name: "Copo Açaí 500ml",
+        name: "Copo Açaí Grande 500ml",
         category: "acai",
         price: 20.00,
-        description: "Açaí cremoso de 500ml. Perfeito para quem ama açaí!",
-        image: "imgspasteis/acai.png"
-    },
-    {
-        id: 103,
-        name: "Copo Açaí 700ml",
-        category: "acai",
-        price: 25.00,
-        description: "Açaí cremoso de 700ml. O tamanho da sua fome!",
-        image: "imgspasteis/acai.png"
+        description: "Açaí cremoso de 500ml. Monte do seu jeito!",
+        image: "imgspasteis/acai2.png"
     }
 ];
 

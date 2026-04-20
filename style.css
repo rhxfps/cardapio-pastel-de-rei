@@ -969,6 +969,36 @@ footer {
     border-color: var(--primary);
 }
 
+.acai-size-card.clickable {
+    cursor: pointer;
+    position: relative;
+}
+
+.acai-size-card.clickable:active {
+    transform: scale(0.95);
+}
+
+.size-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--primary);
+    color: var(--dark);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: var(--transition);
+    transform: translateY(-5px);
+}
+
+.acai-size-card.clickable:hover .size-badge {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .acai-size-card h4 {
     font-size: 0.8rem;
     text-transform: uppercase;
