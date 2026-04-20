@@ -852,20 +852,45 @@ footer {
 }
 
 /* Açaí Section Styles */
+body.acai-mode {
+    background: #4B0082 !important;
+    transition: background 0.5s ease;
+}
+
+body.acai-mode .menu-section .section-title {
+    color: white !important;
+}
+
+body.acai-mode header {
+    background: rgba(75, 0, 130, 0.9) !important;
+    border-bottom-color: rgba(255, 215, 0, 0.2);
+}
+
+body.acai-mode .navbar h1, 
+body.acai-mode .nav-links a {
+    color: white !important;
+}
+
+body.acai-mode footer {
+    background: #36005d !important;
+    color: white !important;
+    border-top-color: rgba(255, 215, 0, 0.1);
+}
+
+body.acai-mode .footer-info p, 
+body.acai-mode .footer-hours p,
+body.acai-mode .footer-bottom p {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
 .acai-builder {
     display: none;
-    background: #4B0082;
-    background: linear-gradient(135deg, #4B0082 0%, #800080 100%);
+    background: transparent;
     border-radius: var(--radius-lg);
-    padding: 3rem;
+    padding: 3rem 0;
     color: white;
     margin-top: 2rem;
-    box-shadow: var(--shadow-lg);
     position: relative;
-    overflow: hidden;
-    width: 100vw;
-    margin-left: 50%;
-    transform: translateX(-50%);
 }
 
 .acai-builder.active {
