@@ -857,18 +857,36 @@ body.acai-mode {
     transition: background 0.5s ease;
 }
 
-body.acai-mode .menu-section .section-title {
+body.acai-mode .hero,
+body.acai-mode .menu-section,
+body.acai-mode main {
+    background: transparent !important;
+}
+
+body.acai-mode .hero::before,
+body.acai-mode .hero-decoration {
+    display: none !important;
+}
+
+body.acai-mode .hero-content h2,
+body.acai-mode .hero-content p,
+body.acai-mode .section-title {
     color: white !important;
 }
 
 body.acai-mode header {
-    background: rgba(75, 0, 130, 0.9) !important;
+    background: rgba(75, 0, 130, 0.95) !important;
     border-bottom-color: rgba(255, 215, 0, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 body.acai-mode .navbar h1, 
 body.acai-mode .nav-links a {
     color: white !important;
+}
+
+body.acai-mode .nav-links a::after {
+    background: var(--primary);
 }
 
 body.acai-mode footer {
@@ -881,6 +899,10 @@ body.acai-mode .footer-info p,
 body.acai-mode .footer-hours p,
 body.acai-mode .footer-bottom p {
     color: rgba(255, 255, 255, 0.8) !important;
+}
+
+body.acai-mode .footer-info i {
+    color: var(--primary);
 }
 
 .acai-builder {
