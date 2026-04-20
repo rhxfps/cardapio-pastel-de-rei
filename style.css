@@ -854,7 +854,6 @@ footer {
 /* Açaí Section Styles */
 body.acai-mode {
     background: #4B0082 !important;
-    transition: background 0.5s ease;
 }
 
 body.acai-mode .hero,
@@ -864,8 +863,10 @@ body.acai-mode main {
 }
 
 body.acai-mode .hero::before,
-body.acai-mode .hero-decoration {
+body.acai-mode .hero-decoration,
+body.acai-mode .hero::after {
     display: none !important;
+    background: none !important;
 }
 
 body.acai-mode .hero-content h2,
@@ -875,9 +876,8 @@ body.acai-mode .section-title {
 }
 
 body.acai-mode header {
-    background: rgba(75, 0, 130, 0.95) !important;
+    background: #4B0082 !important;
     border-bottom-color: rgba(255, 215, 0, 0.2);
-    backdrop-filter: blur(10px);
 }
 
 body.acai-mode .navbar h1, 
@@ -917,7 +917,6 @@ body.acai-mode .footer-info i {
 
 .acai-builder.active {
     display: block;
-    animation: fadeIn 0.5s ease;
 }
 
 .acai-content-wrapper {
