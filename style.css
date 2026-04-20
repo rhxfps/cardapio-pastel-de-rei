@@ -863,11 +863,19 @@ footer {
     box-shadow: var(--shadow-lg);
     position: relative;
     overflow: hidden;
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 .acai-builder.active {
     display: block;
     animation: fadeIn 0.5s ease;
+}
+
+.acai-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .acai-builder::before {
