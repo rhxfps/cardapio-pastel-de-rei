@@ -853,66 +853,68 @@ footer {
 
 /* Açaí Section Styles */
 body.acai-mode {
-    background: #4B0082 !important;
-}
-
-body.acai-mode .hero,
-body.acai-mode .menu-section,
-body.acai-mode main {
-    background: transparent !important;
-}
-
-body.acai-mode .hero::before,
-body.acai-mode .hero-decoration,
-body.acai-mode .hero::after {
-    display: none !important;
-    background: none !important;
-}
-
-body.acai-mode .hero-content h2,
-body.acai-mode .hero-content p,
-body.acai-mode .section-title {
-    color: white !important;
+    background: #310055 !important; /* Roxo bem escuro para o fundo geral */
 }
 
 body.acai-mode header {
-    background: #4B0082 !important;
-    border-bottom-color: rgba(255, 215, 0, 0.2);
+    background: #240041 !important; /* Roxo quase preto para o topo */
+    border-bottom: 2px solid var(--primary);
 }
 
-body.acai-mode .navbar h1, 
-body.acai-mode .nav-links a {
-    color: white !important;
+body.acai-mode .hero {
+    background: linear-gradient(180deg, #240041 0%, #310055 100%) !important;
+    padding-bottom: 2rem;
 }
 
-body.acai-mode .nav-links a::after {
-    background: var(--primary);
+body.acai-mode .menu-section {
+    background: #310055 !important;
+    padding-top: 4rem;
 }
 
 body.acai-mode footer {
-    background: #36005d !important;
-    color: white !important;
-    border-top-color: rgba(255, 215, 0, 0.1);
+    background: #1a0030 !important; /* Rodapé mais escuro ainda */
 }
 
-body.acai-mode .footer-info p, 
-body.acai-mode .footer-hours p,
-body.acai-mode .footer-bottom p {
-    color: rgba(255, 255, 255, 0.8) !important;
-}
-
-body.acai-mode .footer-info i {
-    color: var(--primary);
-}
-
+/* Destaque para o painel de montagem */
 .acai-builder {
     display: none;
-    background: transparent;
-    border-radius: var(--radius-lg);
-    padding: 3rem 0;
+    background: #4B0082; /* Roxo vibrante para o painel */
+    background: linear-gradient(135deg, #4b0082 0%, #6a0dad 100%);
+    border-radius: 30px;
+    padding: 4rem 2rem;
     color: white;
     margin-top: 2rem;
     position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.acai-size-card {
+    background: rgba(0, 0, 0, 0.3); /* Fundo escuro para destacar os preços */
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    text-align: center;
+    border: 2px solid transparent;
+    min-width: 180px;
+    transition: var(--transition);
+}
+
+.acai-size-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-10px);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.acai-group {
+    background: rgba(255, 255, 255, 0.05); /* Leve destaque nos grupos */
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+
+.acai-group:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .acai-builder.active {
@@ -922,18 +924,6 @@ body.acai-mode .footer-info i {
 .acai-content-wrapper {
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.acai-builder::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 200px;
-    height: 200px;
-    background: rgba(255, 215, 0, 0.1);
-    border-radius: 50%;
-    z-index: 0;
 }
 
 .acai-header {
@@ -988,15 +978,74 @@ body.acai-mode .footer-info i {
     gap: 2rem;
 }
 
-.acai-group h3 {
-    font-size: 1.1rem;
+.acai-sizes {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.acai-size-card h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.acai-size-card .ml {
+    font-size: 1.2rem;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.acai-size-card .price {
+    font-size: 1.5rem;
     color: var(--primary);
-    margin-bottom: 1rem;
-    border-bottom: 2px solid rgba(255, 215, 0, 0.3);
-    padding-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.acai-group ul {
+    list-style: none;
+}
+
+.acai-group li {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
+    opacity: 0.9;
+    color: white;
+}
+
+.acai-group li::before {
+    content: '•';
+    color: #ff69b4;
+    font-weight: bold;
+}
+
+@media (max-width: 992px) {
+    .acai-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .acai-visual {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .acai-sizes {
+        flex-direction: column;
+    }
+    
+    .acai-builder {
+        padding: 1.5rem;
+    }
 }
 
 .acai-group ul {
