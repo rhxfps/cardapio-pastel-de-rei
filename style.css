@@ -1028,20 +1028,33 @@ footer {
     }
 }
 
-/* Print adaptation for Açaí */
-@media print {
-    .acai-builder {
-        display: block !important;
-        background: white !important;
-        color: black !important;
-        border: 2px solid #4B0082 !important;
-        page-break-before: always;
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem 5%;
     }
     
-    .acai-header h2, .acai-group h3, .acai-size-card .price {
-        color: #4B0082 !important;
+    .nav-links {
+        display: none; /* In a real app, you'd add a mobile menu */
+    }
+    
+    .hero {
+        padding: 6rem 5% 4rem;
+        text-align: center;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
     }
 }
+
+/* Print Styles */
+@media print {
     /* General Setup */
     body {
         background: white !important;
@@ -1066,7 +1079,8 @@ footer {
     .btn-square,
     .hero-btns,
     .hero-decoration,
-    .cart-modal {
+    .cart-modal,
+    .print-trigger {
         display: none !important;
     }
 
@@ -1175,41 +1189,21 @@ footer {
         border-top: 1px solid #eee;
         padding-top: 20px;
     }
+
+    .acai-builder {
+        display: block !important;
+        background: white !important;
+        color: black !important;
+        border: 2px solid #4B0082 !important;
+        page-break-before: always;
+    }
+    
+    .acai-header h2, .acai-group h3, .acai-size-card .price {
+        color: #4B0082 !important;
+    }
 }
 
 /* Print-only Elements (hidden on screen) */
 .print-header, .print-footer {
     display: none;
-}
-
-/* Floating Print Button */
-.print-trigger {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: var(--dark);
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: var(--shadow-lg);
-    z-index: 1001;
-    transition: var(--transition);
-    border: none;
-    font-size: 1.5rem;
-}
-
-.print-trigger:hover {
-    transform: scale(1.1);
-    background: var(--secondary);
-}
-
-@media print {
-    .print-trigger {
-        display: none !important;
-    }
 }
