@@ -856,15 +856,13 @@ footer {
     display: none;
     background: #4B0082;
     background: linear-gradient(135deg, #4B0082 0%, #800080 100%);
-    border-radius: 0;
-    padding: 3rem 0;
+    border-radius: var(--radius-lg);
+    padding: 3rem;
     color: white;
-    margin-top: 2rem;
+    margin: 2rem 10px 0; /* Margem pequena de 10px nas laterais */
     box-shadow: var(--shadow-lg);
     position: relative;
     overflow: hidden;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
 }
 
 .acai-builder.active {
