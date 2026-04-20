@@ -414,11 +414,9 @@ function renderMenu(category, subCategory = 'todos') {
     if (category === 'acai') {
         acaiBuilder.classList.add('active');
         menuGrid.style.display = 'none';
-        document.body.classList.add('acai-mode');
     } else {
         acaiBuilder.classList.remove('active');
         menuGrid.style.display = 'grid';
-        document.body.classList.remove('acai-mode');
     }
     
     let filteredItems;
