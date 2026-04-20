@@ -17,7 +17,7 @@ const puppeteer = require('puppeteer');
   
   // Gera o PDF
   await page.pdf({
-    path: 'Cardapio-Pastel-de-Rei-Oficial.pdf',
+    path: 'PDFs-Cardapio/Cardapio-Pastel-de-Rei-Oficial.pdf',
     format: 'A4',
     printBackground: true,
     margin: {
@@ -29,5 +29,5 @@ const puppeteer = require('puppeteer');
   });
 
   await browser.close();
-  console.log('PDF gerado com sucesso: Cardapio-Pastel-de-Rei-Oficial.pdf');
+  console.log('PDF gerado com sucesso na pasta: PDFs-Cardapio/Cardapio-Pastel-de-Rei-Oficial.pdf');
 })();

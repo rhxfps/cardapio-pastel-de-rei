@@ -183,11 +183,36 @@ const menuItems = [
         price: 2.00,
         description: "Bebida láctea sabor chocolate Mocoquinha.",
         image: "imgspasteis/mocoquinha.png"
+    },
+    {
+        id: 101,
+        name: "Copo Açaí 300ml",
+        category: "acai",
+        price: 15.00,
+        description: "Açaí cremoso de 300ml. Monte do seu jeito com nossos adicionais!",
+        image: "imgspasteis/acai.png"
+    },
+    {
+        id: 102,
+        name: "Copo Açaí 500ml",
+        category: "acai",
+        price: 20.00,
+        description: "Açaí cremoso de 500ml. Perfeito para quem ama açaí!",
+        image: "imgspasteis/acai.png"
+    },
+    {
+        id: 103,
+        name: "Copo Açaí 700ml",
+        category: "acai",
+        price: 25.00,
+        description: "Açaí cremoso de 700ml. O tamanho da sua fome!",
+        image: "imgspasteis/acai.png"
     }
 ];
 
 // DOM Elements
 const menuGrid = document.getElementById('menu-grid');
+const acaiBuilder = document.getElementById('acai-builder');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const themeToggle = document.getElementById('theme-toggle');
 const subFilterContainer = document.getElementById('sub-filter-container');
@@ -384,6 +409,15 @@ function updateThemeIcon(theme) {
 // Render Menu
 function renderMenu(category, subCategory = 'todos') {
     menuGrid.innerHTML = '';
+    
+    // Show/Hide Açaí Builder
+    if (category === 'acai') {
+        acaiBuilder.classList.add('active');
+        menuGrid.style.display = 'none';
+    } else {
+        acaiBuilder.classList.remove('active');
+        menuGrid.style.display = 'grid';
+    }
     
     let filteredItems;
     if (category === 'todos') {
