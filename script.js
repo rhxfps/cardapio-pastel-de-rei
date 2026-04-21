@@ -196,7 +196,7 @@ const menuItems = [
         id: 102,
         name: "Copo Açaí Grande 500ml",
         category: "acai",
-        price: 20.00,
+        price: 15.00,
         description: "Açaí cremoso de 500ml. Monte do seu jeito!",
         image: "imgspasteis/acai2.png"
     }
