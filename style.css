@@ -902,6 +902,28 @@ footer {
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #ff69b4; /* Pink */
+    margin-bottom: 1.5rem;
+}
+
+.pdf-btn {
+    background: var(--primary);
+    color: var(--dark);
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.pdf-btn:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .acai-container {
@@ -1109,7 +1131,7 @@ footer {
     .hero-btns,
     .hero-decoration,
     .cart-modal,
-    .print-trigger {
+    .pdf-btn {
         display: none !important;
     }
 
@@ -1223,12 +1245,46 @@ footer {
         display: block !important;
         background: white !important;
         color: black !important;
-        border: 2px solid #4B0082 !important;
-        page-break-before: always;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
     }
-    
-    .acai-header h2, .acai-group h3, .acai-size-card .price {
+
+    .acai-header h2 {
         color: #4B0082 !important;
+        margin-top: 0;
+    }
+
+    .acai-header p {
+        color: #666 !important;
+    }
+
+    .acai-size-card {
+        background: #f9f9f9 !important;
+        border: 1px solid #ddd !important;
+        color: black !important;
+    }
+
+    .acai-size-card h4, .acai-size-card .ml {
+        color: black !important;
+    }
+
+    .acai-size-card .price {
+        color: #4B0082 !important;
+    }
+
+    .acai-group h3 {
+        color: #4B0082 !important;
+        border-bottom: 2px solid #4B0082 !important;
+    }
+
+    .acai-group li {
+        color: black !important;
+    }
+
+    .acai-visual img {
+        max-width: 250px !important;
     }
 }
 
