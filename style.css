@@ -1244,15 +1244,17 @@ footer {
 
     .acai-builder {
         display: block !important;
-        background: white !important;
-        color: black !important;
-        padding: 0 !important;
+        background: #4B0082 !important; /* Fundo roxo no PDF */
+        color: white !important;
+        padding: 20px !important;
         margin: 0 !important;
         box-shadow: none !important;
         border: none !important;
         width: 100% !important;
         position: static !important;
         transform: none !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 
     .acai-header {
@@ -1260,13 +1262,13 @@ footer {
     }
 
     .acai-header h2 {
-        color: #4B0082 !important;
+        color: var(--primary) !important; /* Título amarelo no PDF */
         margin-top: 0;
         font-size: 2.5rem !important;
     }
 
     .acai-header p {
-        color: #666 !important;
+        color: rgba(255, 255, 255, 0.8) !important;
         font-size: 1rem !important;
         margin-bottom: 0.5rem !important;
     }
@@ -1277,20 +1279,20 @@ footer {
     }
 
     .acai-size-card {
-        background: #f9f9f9 !important;
-        border: 1px solid #ddd !important;
-        color: black !important;
+        background: rgba(0, 0, 0, 0.2) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        color: white !important;
         padding: 1rem !important;
         min-width: 140px !important;
     }
 
     .acai-size-card h4, .acai-size-card .ml {
-        color: black !important;
+        color: white !important;
         font-size: 0.9rem !important;
     }
 
     .acai-size-card .price {
-        color: #4B0082 !important;
+        color: var(--primary) !important;
         font-size: 1.2rem !important;
     }
 
@@ -1308,18 +1310,19 @@ footer {
 
     .acai-group {
         padding: 0.8rem !important;
-        background: none !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-radius: 10px !important;
     }
 
     .acai-group h3 {
-        color: #4B0082 !important;
-        border-bottom: 2px solid #4B0082 !important;
+        color: var(--primary) !important;
+        border-bottom: 2px solid var(--primary) !important;
         font-size: 1.1rem !important;
         margin-bottom: 0.5rem !important;
     }
 
     .acai-group li {
-        color: black !important;
+        color: white !important;
         font-size: 0.85rem !important;
         margin-bottom: 0.2rem !important;
     }
