@@ -1131,7 +1131,8 @@ footer {
     .hero-btns,
     .hero-decoration,
     .cart-modal,
-    .pdf-btn {
+    .pdf-btn,
+    .menu-grid {
         display: none !important;
     }
 
@@ -1249,42 +1250,78 @@ footer {
         margin: 0 !important;
         box-shadow: none !important;
         border: none !important;
+        width: 100% !important;
+        position: static !important;
+        transform: none !important;
+    }
+
+    .acai-header {
+        margin-bottom: 1rem !important;
     }
 
     .acai-header h2 {
         color: #4B0082 !important;
         margin-top: 0;
+        font-size: 2.5rem !important;
     }
 
     .acai-header p {
         color: #666 !important;
+        font-size: 1rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .acai-sizes {
+        margin-bottom: 1.5rem !important;
+        gap: 1rem !important;
     }
 
     .acai-size-card {
         background: #f9f9f9 !important;
         border: 1px solid #ddd !important;
         color: black !important;
+        padding: 1rem !important;
+        min-width: 140px !important;
     }
 
     .acai-size-card h4, .acai-size-card .ml {
         color: black !important;
+        font-size: 0.9rem !important;
     }
 
     .acai-size-card .price {
         color: #4B0082 !important;
+        font-size: 1.2rem !important;
+    }
+
+    .acai-container {
+        gap: 1.5rem !important;
+    }
+
+    .acai-visual img {
+        max-width: 200px !important;
+    }
+
+    .acai-options {
+        gap: 1rem !important;
+    }
+
+    .acai-group {
+        padding: 0.8rem !important;
+        background: none !important;
     }
 
     .acai-group h3 {
         color: #4B0082 !important;
         border-bottom: 2px solid #4B0082 !important;
+        font-size: 1.1rem !important;
+        margin-bottom: 0.5rem !important;
     }
 
     .acai-group li {
         color: black !important;
-    }
-
-    .acai-visual img {
-        max-width: 250px !important;
+        font-size: 0.85rem !important;
+        margin-bottom: 0.2rem !important;
     }
 }
 
