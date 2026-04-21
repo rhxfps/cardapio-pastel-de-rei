@@ -188,7 +188,7 @@ const menuItems = [
         id: 101,
         name: "Copo Açaí Pequeno 300ml",
         category: "acai",
-        price: 15.00,
+        price: 10.00,
         description: "Açaí cremoso de 300ml. Monte do seu jeito!",
         image: "imgspasteis/acai2.png"
     },
