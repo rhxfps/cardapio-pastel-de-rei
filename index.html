@@ -77,7 +77,12 @@
         </section>
 
         <section id="cardapio" class="menu-section">
-            <h2 class="section-title">Nosso Cardápio</h2>
+            <div class="section-header-container">
+                <h2 class="section-title">Nosso Cardápio</h2>
+                <button id="main-pdf-btn" class="pdf-btn main-pdf-btn" onclick="window.print()" title="Salvar Cardápio em PDF">
+                    <i class="fas fa-file-pdf"></i> Salvar PDF
+                </button>
+            </div>
             
             <div class="filter-container">
                 <button class="filter-btn active" data-filter="todos">Todos</button>

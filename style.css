@@ -1104,6 +1104,23 @@ footer {
     }
 }
 
+.section-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    padding: 0 5%;
+}
+
+.section-header-container .section-title {
+    margin-bottom: 0;
+}
+
+.main-pdf-btn {
+    margin-bottom: 0;
+}
+
 /* Print Styles */
 @media print {
     /* General Setup */
@@ -1131,8 +1148,7 @@ footer {
     .hero-btns,
     .hero-decoration,
     .cart-modal,
-    .pdf-btn,
-    .menu-grid {
+    .pdf-btn {
         display: none !important;
     }
 
@@ -1177,12 +1193,14 @@ footer {
         text-align: left !important;
         border-left: 5px solid var(--primary);
         padding-left: 15px !important;
+        color: black !important;
     }
 
+    /* Main Menu PDF Layout (Grid) */
     .menu-grid {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 20px !important;
+        gap: 15px !important;
         page-break-inside: auto;
     }
 
@@ -1195,32 +1213,35 @@ footer {
         background: #fff !important;
         display: flex !important;
         flex-direction: row !important;
-        height: 120px !important;
+        height: 100px !important;
+        margin: 0 !important;
     }
 
     .item-img {
-        width: 100px !important;
-        height: 120px !important;
+        width: 80px !important;
+        height: 100px !important;
         flex-shrink: 0 !important;
     }
 
     .item-info {
-        padding: 10px 15px !important;
+        padding: 8px 12px !important;
         justify-content: center !important;
     }
 
     .item-info h3 {
-        font-size: 1rem !important;
-        margin-bottom: 4px !important;
+        font-size: 0.9rem !important;
+        margin-bottom: 2px !important;
+        color: black !important;
     }
 
     .item-info p {
-        font-size: 0.75rem !important;
-        margin-bottom: 5px !important;
+        font-size: 0.7rem !important;
+        margin-bottom: 3px !important;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
+        color: #666 !important;
     }
 
     .item-price {
@@ -1228,23 +1249,23 @@ footer {
     }
 
     .price {
-        font-size: 1.1rem !important;
+        font-size: 1rem !important;
+        color: black !important;
+        font-weight: 700 !important;
     }
 
-    /* Footer Info for Print */
-    .print-footer {
-        display: block !important;
-        margin-top: 40px;
-        text-align: center;
-        font-size: 0.8rem;
-        color: #666;
-        border-top: 1px solid #eee;
-        padding-top: 20px;
+    /* Açaí Menu PDF Layout */
+    body.acai-mode .menu-grid {
+        display: none !important;
+    }
+
+    body:not(.acai-mode) .acai-builder {
+        display: none !important;
     }
 
     .acai-builder {
         display: block !important;
-        background: #4B0082 !important; /* Fundo roxo no PDF */
+        background: #4B0082 !important;
         color: white !important;
         padding: 20px !important;
         margin: 0 !important;
@@ -1257,74 +1278,81 @@ footer {
         print-color-adjust: exact !important;
     }
 
-    .acai-header {
-        margin-bottom: 1rem !important;
-    }
-
     .acai-header h2 {
-        color: var(--primary) !important; /* Título amarelo no PDF */
+        color: var(--primary) !important;
         margin-top: 0;
-        font-size: 2.5rem !important;
+        font-size: 2.2rem !important;
     }
 
     .acai-header p {
         color: rgba(255, 255, 255, 0.8) !important;
-        font-size: 1rem !important;
+        font-size: 0.9rem !important;
         margin-bottom: 0.5rem !important;
     }
 
     .acai-sizes {
-        margin-bottom: 1.5rem !important;
-        gap: 1rem !important;
+        margin-bottom: 1rem !important;
+        gap: 0.8rem !important;
     }
 
     .acai-size-card {
         background: rgba(0, 0, 0, 0.2) !important;
         border: 1px solid rgba(255, 255, 255, 0.2) !important;
         color: white !important;
-        padding: 1rem !important;
-        min-width: 140px !important;
+        padding: 0.8rem !important;
+        min-width: 120px !important;
     }
 
     .acai-size-card h4, .acai-size-card .ml {
         color: white !important;
-        font-size: 0.9rem !important;
+        font-size: 0.8rem !important;
     }
 
     .acai-size-card .price {
         color: var(--primary) !important;
-        font-size: 1.2rem !important;
+        font-size: 1.1rem !important;
     }
 
     .acai-container {
-        gap: 1.5rem !important;
-    }
-
-    .acai-visual img {
-        max-width: 200px !important;
-    }
-
-    .acai-options {
         gap: 1rem !important;
     }
 
+    .acai-visual img {
+        max-width: 180px !important;
+    }
+
+    .acai-options {
+        gap: 0.8rem !important;
+    }
+
     .acai-group {
-        padding: 0.8rem !important;
+        padding: 0.6rem !important;
         background: rgba(255, 255, 255, 0.05) !important;
-        border-radius: 10px !important;
+        border-radius: 8px !important;
     }
 
     .acai-group h3 {
         color: var(--primary) !important;
         border-bottom: 2px solid var(--primary) !important;
-        font-size: 1.1rem !important;
-        margin-bottom: 0.5rem !important;
+        font-size: 1rem !important;
+        margin-bottom: 0.4rem !important;
     }
 
     .acai-group li {
         color: white !important;
-        font-size: 0.85rem !important;
-        margin-bottom: 0.2rem !important;
+        font-size: 0.8rem !important;
+        margin-bottom: 0.1rem !important;
+    }
+
+    /* Footer Info for Print */
+    .print-footer {
+        display: block !important;
+        margin-top: 30px;
+        text-align: center;
+        font-size: 0.75rem;
+        color: #666;
+        border-top: 1px solid #eee;
+        padding-top: 15px;
     }
 }
 
