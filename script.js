@@ -406,15 +406,21 @@ function renderMenu(category, subCategory = 'todos') {
     if (category === 'acai') {
         acaiBuilder.classList.add('active');
         menuGrid.style.display = 'none';
+        document.body.classList.add('acai-mode');
     } else {
         acaiBuilder.classList.remove('active');
         menuGrid.style.display = 'grid';
+        document.body.classList.remove('acai-mode');
     }
     
     let filteredItems;
     if (category === 'todos') {
-        // Only show food (salgados and doces) as requested
-        filteredItems = menuItems.filter(item => item.category === 'salgados' || item.category === 'doces');
+        // Inclui salgados, doces e bebidas
+        filteredItems = menuItems.filter(item => 
+            item.category === 'salgados' || 
+            item.category === 'doces' || 
+            item.category === 'bebidas'
+        );
     } else if (category === 'acai') {
         filteredItems = menuItems.filter(item => item.category === 'acai');
     } else {
@@ -425,29 +431,83 @@ function renderMenu(category, subCategory = 'todos') {
         filteredItems = filteredItems.filter(item => item.type === subCategory);
     }
 
-    filteredItems.forEach(item => {
-        const itemCard = `
-            <div class="menu-item ${item.outOfStock ? 'out-of-stock' : ''}" data-category="${item.category}">
-                <div class="item-img">
-                    <img src="${item.image}" alt="${item.name}" loading="lazy">
-                    ${item.outOfStock ? '<div class="out-of-stock-badge">Esgotado</div>' : ''}
-                </div>
-                <div class="item-info">
-                    <h3>${item.name}</h3>
-                    <p>${item.description}</p>
-                    <div class="item-price">
-                        <span class="price">R$ ${item.price.toFixed(2)}</span>
-                        ${isCartEnabled ? `
-                        <button class="add-to-cart-btn" onclick="addToCart(${item.id})" ${item.outOfStock ? 'disabled' : ''}>
-                            <i class="fas ${item.outOfStock ? 'fa-times' : 'fa-plus'}"></i> ${item.outOfStock ? 'Indisponível' : 'Adicionar'}
-                        </button>
-                        ` : ''}
-                    </div>
+    // Se estiver em "Todos", vamos agrupar por categoria para ficar organizado (importante para o PDF)
+    if (category === 'todos') {
+        const categories = [
+            { id: 'salgados', name: 'Pastéis Salgados' },
+            { id: 'doces', name: 'Pastéis Doces' },
+            { id: 'bebidas', name: 'Bebidas' }
+        ];
+
+        categories.forEach(cat => {
+            const itemsInCategory = filteredItems.filter(item => item.category === cat.id);
+            if (itemsInCategory.length > 0) {
+                // Adiciona título da categoria (será estilizado para aparecer melhor no PDF)
+                const categoryHeader = document.createElement('div');
+                categoryHeader.className = 'category-header-print';
+                categoryHeader.innerHTML = `<h3>${cat.name}</h3>`;
+                menuGrid.appendChild(categoryHeader);
+
+                itemsInCategory.forEach(item => {
+                    const card = createItemCard(item);
+                    menuGrid.insertAdjacentHTML('beforeend', card);
+                });
+            }
+        });
+    } else {
+        filteredItems.forEach(item => {
+            const card = createItemCard(item);
+            menuGrid.insertAdjacentHTML('beforeend', card);
+        });
+    }
+}
+
+// Generate PDF for Main Menu
+function generateMainPDF() {
+    // 1. Identificar qual filtro está ativo
+    const activeBtn = document.querySelector('.filter-btn.active');
+    const currentCategory = activeBtn ? activeBtn.getAttribute('data-filter') : 'todos';
+
+    // 2. Se não estiver no modo Açaí, força renderizar "Todos" (com bebidas) para o PDF
+    if (currentCategory !== 'acai') {
+        renderMenu('todos');
+        
+        // Pequeno delay para o DOM atualizar
+        setTimeout(() => {
+            window.print();
+            // 3. Volta para o filtro anterior (opcional, mas bom para UX)
+            if (currentCategory !== 'todos') {
+                renderMenu(currentCategory);
+            }
+        }, 200);
+    } else {
+        // Se já estiver no Açaí, apenas imprime o que está na tela
+        window.print();
+    }
+}
+
+// Helper to create item card HTML
+function createItemCard(item) {
+    return `
+        <div class="menu-item ${item.outOfStock ? 'out-of-stock' : ''}" data-category="${item.category}">
+            <div class="item-img">
+                <img src="${item.image}" alt="${item.name}" loading="lazy">
+                ${item.outOfStock ? '<div class="out-of-stock-badge">Esgotado</div>' : ''}
+            </div>
+            <div class="item-info">
+                <h3>${item.name}</h3>
+                <p>${item.description}</p>
+                <div class="item-price">
+                    <span class="price">R$ ${item.price.toFixed(2)}</span>
+                    ${isCartEnabled ? `
+                    <button class="add-to-cart-btn" onclick="addToCart(${item.id})" ${item.outOfStock ? 'disabled' : ''}>
+                        <i class="fas ${item.outOfStock ? 'fa-times' : 'fa-plus'}"></i> ${item.outOfStock ? 'Indisponível' : 'Adicionar'}
+                    </button>
+                    ` : ''}
                 </div>
             </div>
-        `;
-        menuGrid.innerHTML += itemCard;
-    });
+        </div>
+    `;
 }
 
 // Filter Functionality

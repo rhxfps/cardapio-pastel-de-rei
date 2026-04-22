@@ -1204,6 +1204,25 @@ footer {
         page-break-inside: auto;
     }
 
+    .category-header-print {
+        display: block !important;
+        grid-column: 1 / -1 !important;
+        margin-top: 25px !important;
+        margin-bottom: 10px !important;
+        border-bottom: 2px solid var(--primary) !important;
+        background: #f9f9f9 !important;
+        padding: 5px 10px !important;
+        break-after: avoid !important;
+    }
+
+    .category-header-print h3 {
+        font-size: 1.1rem !important;
+        color: var(--secondary) !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        margin: 0 !important;
+    }
+
     .menu-item {
         break-inside: avoid;
         page-break-inside: avoid;
@@ -1357,6 +1376,6 @@ footer {
 }
 
 /* Print-only Elements (hidden on screen) */
-.print-header, .print-footer {
+.print-header, .print-footer, .category-header-print {
     display: none;
 }

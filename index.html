@@ -56,6 +56,14 @@
     </div>
 
     <main>
+        <!-- Print Header (Hidden on Screen) -->
+        <div class="print-header">
+            <img src="logopastel.png" alt="Logo">
+            <h1>Pastel de <span>Rei</span></h1>
+            <p><i class="fas fa-map-marker-alt"></i> Estr. São Sebastião, 355 | <i class="fab fa-instagram"></i> @pastelderei</p>
+            <p>O sabor da realeza em cada mordida!</p>
+        </div>
+
         <section id="inicio" class="hero">
             <div class="hero-content">
                 <span class="hero-tag">Sabor Artesanal</span>
@@ -79,7 +87,7 @@
         <section id="cardapio" class="menu-section">
             <div class="section-header-container">
                 <h2 class="section-title">Nosso Cardápio</h2>
-                <button id="main-pdf-btn" class="pdf-btn main-pdf-btn" onclick="window.print()" title="Salvar Cardápio em PDF">
+                <button id="main-pdf-btn" class="pdf-btn main-pdf-btn" onclick="generateMainPDF()" title="Salvar Cardápio em PDF">
                     <i class="fas fa-file-pdf"></i> Salvar PDF
                 </button>
             </div>
@@ -165,6 +173,12 @@
                     </div>
             </div>
         </section>
+
+        <!-- Print Footer (Hidden on Screen) -->
+        <div class="print-footer">
+            <p>Obrigado pela preferência! | 👑 Pastel de Rei 👑</p>
+            <p>Cardápio atualizado em 2026</p>
+        </div>
     </main>
 
     <footer id="contato">
