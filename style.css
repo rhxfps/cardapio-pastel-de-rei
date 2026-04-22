@@ -1156,27 +1156,27 @@ footer {
     .print-header {
         display: block !important;
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 10px !important;
         border-bottom: 2px solid var(--secondary);
-        padding-bottom: 20px;
+        padding-bottom: 5px !important;
     }
 
     .print-header img {
-        height: 80px;
-        margin-bottom: 10px;
+        height: 50px !important;
+        margin-bottom: 5px !important;
     }
 
     .print-header h1 {
         font-family: 'Yellowtail', cursive;
         color: var(--secondary);
-        font-size: 3rem;
+        font-size: 2rem !important;
         margin: 0;
     }
 
     .print-header p {
         color: var(--text-muted);
-        font-size: 1rem;
-        margin: 5px 0;
+        font-size: 0.8rem !important;
+        margin: 2px 0 !important;
     }
 
     /* Menu Layout for Print */
@@ -1187,39 +1187,33 @@ footer {
     }
 
     .section-title {
-        display: block !important;
-        font-size: 1.8rem !important;
-        margin: 20px 0 !important;
-        text-align: left !important;
-        border-left: 5px solid var(--primary);
-        padding-left: 15px !important;
-        color: black !important;
+        display: none !important; /* Esconde o título redundante no PDF */
     }
 
     /* Main Menu PDF Layout (Grid) */
     .menu-grid {
         display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 15px !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 8px !important;
         page-break-inside: auto;
     }
 
     .category-header-print {
         display: block !important;
         grid-column: 1 / -1 !important;
-        margin-top: 25px !important;
-        margin-bottom: 10px !important;
-        border-bottom: 2px solid var(--primary) !important;
+        margin-top: 15px !important;
+        margin-bottom: 5px !important;
+        border-bottom: 1px solid var(--primary) !important;
         background: #f9f9f9 !important;
-        padding: 5px 10px !important;
+        padding: 3px 8px !important;
         break-after: avoid !important;
     }
 
     .category-header-print h3 {
-        font-size: 1.1rem !important;
+        font-size: 0.9rem !important;
         color: var(--secondary) !important;
         text-transform: uppercase !important;
-        letter-spacing: 1px !important;
+        letter-spacing: 0.5px !important;
         margin: 0 !important;
     }
 
@@ -1232,35 +1226,36 @@ footer {
         background: #fff !important;
         display: flex !important;
         flex-direction: row !important;
-        height: 100px !important;
+        height: 60px !important;
         margin: 0 !important;
     }
 
     .item-img {
-        width: 80px !important;
-        height: 100px !important;
+        width: 50px !important;
+        height: 60px !important;
         flex-shrink: 0 !important;
     }
 
+    .item-img img {
+        padding: 5px !important;
+    }
+
     .item-info {
-        padding: 8px 12px !important;
+        padding: 4px 8px !important;
         justify-content: center !important;
     }
 
     .item-info h3 {
-        font-size: 0.9rem !important;
-        margin-bottom: 2px !important;
+        font-size: 0.75rem !important;
+        margin-bottom: 0 !important;
         color: black !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .item-info p {
-        font-size: 0.7rem !important;
-        margin-bottom: 3px !important;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        color: #666 !important;
+        display: none !important; /* Esconde descrição no PDF para caber em 1 página */
     }
 
     .item-price {
@@ -1268,7 +1263,7 @@ footer {
     }
 
     .price {
-        font-size: 1rem !important;
+        font-size: 0.85rem !important;
         color: black !important;
         font-weight: 700 !important;
     }
@@ -1286,7 +1281,7 @@ footer {
         display: block !important;
         background: #4B0082 !important;
         color: white !important;
-        padding: 20px !important;
+        padding: 15px !important;
         margin: 0 !important;
         box-shadow: none !important;
         border: none !important;
@@ -1300,78 +1295,78 @@ footer {
     .acai-header h2 {
         color: var(--primary) !important;
         margin-top: 0;
-        font-size: 2.2rem !important;
+        font-size: 2rem !important;
     }
 
     .acai-header p {
         color: rgba(255, 255, 255, 0.8) !important;
-        font-size: 0.9rem !important;
-        margin-bottom: 0.5rem !important;
+        font-size: 0.8rem !important;
+        margin-bottom: 0.3rem !important;
     }
 
     .acai-sizes {
-        margin-bottom: 1rem !important;
-        gap: 0.8rem !important;
+        margin-bottom: 0.8rem !important;
+        gap: 0.5rem !important;
     }
 
     .acai-size-card {
         background: rgba(0, 0, 0, 0.2) !important;
         border: 1px solid rgba(255, 255, 255, 0.2) !important;
         color: white !important;
-        padding: 0.8rem !important;
-        min-width: 120px !important;
+        padding: 0.5rem !important;
+        min-width: 100px !important;
     }
 
     .acai-size-card h4, .acai-size-card .ml {
         color: white !important;
-        font-size: 0.8rem !important;
+        font-size: 0.75rem !important;
     }
 
     .acai-size-card .price {
         color: var(--primary) !important;
-        font-size: 1.1rem !important;
+        font-size: 1rem !important;
     }
 
     .acai-container {
-        gap: 1rem !important;
-    }
-
-    .acai-visual img {
-        max-width: 180px !important;
-    }
-
-    .acai-options {
         gap: 0.8rem !important;
     }
 
+    .acai-visual img {
+        max-width: 150px !important;
+    }
+
+    .acai-options {
+        gap: 0.5rem !important;
+    }
+
     .acai-group {
-        padding: 0.6rem !important;
+        padding: 0.4rem !important;
         background: rgba(255, 255, 255, 0.05) !important;
-        border-radius: 8px !important;
+        border-radius: 6px !important;
     }
 
     .acai-group h3 {
         color: var(--primary) !important;
-        border-bottom: 2px solid var(--primary) !important;
-        font-size: 1rem !important;
-        margin-bottom: 0.4rem !important;
+        border-bottom: 1px solid var(--primary) !important;
+        font-size: 0.9rem !important;
+        margin-bottom: 0.3rem !important;
     }
 
     .acai-group li {
         color: white !important;
-        font-size: 0.8rem !important;
+        font-size: 0.75rem !important;
         margin-bottom: 0.1rem !important;
     }
 
     /* Footer Info for Print */
     .print-footer {
         display: block !important;
-        margin-top: 30px;
+        margin-top: 15px;
         text-align: center;
-        font-size: 0.75rem;
+        font-size: 0.65rem;
         color: #666;
         border-top: 1px solid #eee;
-        padding-top: 15px;
+        padding-top: 8px;
     }
 }
 
