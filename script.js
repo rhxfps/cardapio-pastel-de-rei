@@ -69,19 +69,11 @@ const menuItems = [
     },
     {
         id: 5,
-        name: "Nutella com Morango",
+        name: "Pastel Romeu e Julieta",
         category: "doces",
         price: 13.00,
-        description: "Recheio generoso de Nutella com morangos frescos fatiados.",
-        image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=1000&auto=format&fit=crop"
-    },
-    {
-        id: 6,
-        name: "Doce de Leite Mineiro",
-        category: "doces",
-        price: 13.00,
-        description: "O legítimo doce de leite mineiro com toque de canela.",
-        image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1000&auto=format&fit=crop"
+        description: "A combinação perfeita de muçarela derretida e goiabada cascão.",
+        image: "imgspasteis/pastelromeuejulieta.png"
     },
     {
         id: 7,
