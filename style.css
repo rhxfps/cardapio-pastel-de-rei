@@ -1233,7 +1233,8 @@ footer {
         background: #fff !important;
         display: flex !important;
         flex-direction: row !important;
-        height: 60px !important;
+        min-height: 60px !important;
+        height: auto !important;
         margin: 0 !important;
     }
 
@@ -1254,15 +1255,17 @@ footer {
 
     .item-info h3 {
         font-size: 0.75rem !important;
-        margin-bottom: 0 !important;
+        margin-bottom: 2px !important;
         color: black !important;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        white-space: normal !important;
     }
 
     .item-info p {
-        display: none !important; /* Esconde descrição no PDF para caber em 1 página */
+        display: block !important;
+        font-size: 0.6rem !important;
+        color: #555 !important;
+        margin: 0 !important;
+        line-height: 1.1 !important;
     }
 
     .item-price {
