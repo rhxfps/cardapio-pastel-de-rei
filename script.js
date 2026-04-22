@@ -176,15 +176,6 @@ const menuItems = [
         image: "imgspasteis/cocacola200ml.png"
     },
     {
-        id: 21,
-        name: "Mocoquinha Chocolate 200ml",
-        category: "bebidas",
-        type: "outros",
-        price: 2.00,
-        description: "Bebida láctea sabor chocolate Mocoquinha.",
-        image: "imgspasteis/mocoquinha.png"
-    },
-    {
         id: 101,
         name: "Copo Açaí Pequeno 300ml",
         category: "acai",

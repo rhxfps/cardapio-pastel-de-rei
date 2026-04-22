@@ -1190,6 +1190,13 @@ footer {
         display: none !important; /* Esconde o título redundante no PDF */
     }
 
+    /* Força itens esgotados a aparecerem normal no PDF */
+    .menu-item.out-of-stock {
+        opacity: 1 !important;
+        filter: none !important;
+        pointer-events: auto !important;
+    }
+
     /* Main Menu PDF Layout (Grid) */
     .menu-grid {
         display: grid !important;
