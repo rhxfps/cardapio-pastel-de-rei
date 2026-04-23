@@ -54,7 +54,7 @@ const menuItems = [
     },
     {
         id: 3,
-        name: "Pastel de Presunto e Queijo",
+        name: "Bauru",
         category: "salgados",
         price: 13.00,
         description: "A clássica combinação de presunto defumado e muçarela derretida.",
@@ -91,6 +91,14 @@ const menuItems = [
         price: 13.00,
         description: "A combinação perfeita de muçarela derretida e goiabada cascão.",
         image: "imgspasteis/pastelromeuejulieta.png"
+    },
+    {
+        id: 24,
+        name: "Nutella com Morango",
+        category: "doces",
+        price: 18.00,
+        description: "Recheio generoso de Nutella original com morangos frescos selecionados.",
+        image: "imgspasteis/pastelnutela.png"
     },
     {
         id: 7,
