@@ -1,3 +1,4 @@
+// Pastel de Rei - Cardápio Online
 const menuItems = [
     {
         id: 12,
