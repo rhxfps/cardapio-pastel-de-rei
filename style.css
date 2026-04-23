@@ -1156,27 +1156,27 @@ footer {
     .print-header {
         display: block !important;
         text-align: center;
-        margin-bottom: 10px !important;
+        margin-bottom: 5px !important;
         border-bottom: 2px solid var(--secondary);
-        padding-bottom: 5px !important;
+        padding-bottom: 2px !important;
     }
 
     .print-header img {
-        height: 50px !important;
-        margin-bottom: 5px !important;
+        height: 40px !important;
+        margin-bottom: 2px !important;
     }
 
     .print-header h1 {
         font-family: 'Yellowtail', cursive;
         color: var(--secondary);
-        font-size: 2rem !important;
+        font-size: 1.5rem !important;
         margin: 0;
     }
 
     .print-header p {
         color: var(--text-muted);
-        font-size: 0.8rem !important;
-        margin: 2px 0 !important;
+        font-size: 0.7rem !important;
+        margin: 1px 0 !important;
     }
 
     /* Menu Layout for Print */
@@ -1201,23 +1201,23 @@ footer {
     .menu-grid {
         display: grid !important;
         grid-template-columns: repeat(3, 1fr) !important;
-        gap: 8px !important;
+        gap: 4px !important;
         page-break-inside: auto;
     }
 
     .category-header-print {
         display: block !important;
         grid-column: 1 / -1 !important;
-        margin-top: 15px !important;
-        margin-bottom: 5px !important;
+        margin-top: 8px !important;
+        margin-bottom: 3px !important;
         border-bottom: 1px solid var(--primary) !important;
         background: #f9f9f9 !important;
-        padding: 3px 8px !important;
+        padding: 2px 6px !important;
         break-after: avoid !important;
     }
 
     .category-header-print h3 {
-        font-size: 0.9rem !important;
+        font-size: 0.8rem !important;
         color: var(--secondary) !important;
         text-transform: uppercase !important;
         letter-spacing: 0.5px !important;
@@ -1233,39 +1233,40 @@ footer {
         background: #fff !important;
         display: flex !important;
         flex-direction: row !important;
-        min-height: 60px !important;
+        min-height: 45px !important;
         height: auto !important;
         margin: 0 !important;
     }
 
     .item-img {
-        width: 50px !important;
-        height: 60px !important;
+        width: 40px !important;
+        height: 45px !important;
         flex-shrink: 0 !important;
     }
 
     .item-img img {
-        padding: 5px !important;
+        padding: 3px !important;
     }
 
     .item-info {
-        padding: 4px 8px !important;
+        padding: 2px 6px !important;
         justify-content: center !important;
     }
 
     .item-info h3 {
-        font-size: 0.75rem !important;
-        margin-bottom: 2px !important;
+        font-size: 0.7rem !important;
+        margin-bottom: 1px !important;
         color: black !important;
         white-space: normal !important;
+        line-height: 1 !important;
     }
 
     .item-info p {
         display: block !important;
-        font-size: 0.6rem !important;
+        font-size: 0.55rem !important;
         color: #555 !important;
         margin: 0 !important;
-        line-height: 1.1 !important;
+        line-height: 1 !important;
     }
 
     .item-price {
@@ -1273,7 +1274,7 @@ footer {
     }
 
     .price {
-        font-size: 0.85rem !important;
+        font-size: 0.8rem !important;
         color: black !important;
         font-weight: 700 !important;
     }
@@ -1291,7 +1292,7 @@ footer {
         display: block !important;
         background: #4B0082 !important;
         color: white !important;
-        padding: 15px !important;
+        padding: 10px !important;
         margin: 0 !important;
         box-shadow: none !important;
         border: none !important;
@@ -1305,78 +1306,78 @@ footer {
     .acai-header h2 {
         color: var(--primary) !important;
         margin-top: 0;
-        font-size: 2rem !important;
+        font-size: 1.5rem !important;
     }
 
     .acai-header p {
         color: rgba(255, 255, 255, 0.8) !important;
-        font-size: 0.8rem !important;
-        margin-bottom: 0.3rem !important;
+        font-size: 0.7rem !important;
+        margin-bottom: 0.2rem !important;
     }
 
     .acai-sizes {
-        margin-bottom: 0.8rem !important;
-        gap: 0.5rem !important;
+        margin-bottom: 0.5rem !important;
+        gap: 0.3rem !important;
     }
 
     .acai-size-card {
         background: rgba(0, 0, 0, 0.2) !important;
         border: 1px solid rgba(255, 255, 255, 0.2) !important;
         color: white !important;
-        padding: 0.5rem !important;
-        min-width: 100px !important;
+        padding: 0.3rem !important;
+        min-width: 80px !important;
     }
 
     .acai-size-card h4, .acai-size-card .ml {
         color: white !important;
-        font-size: 0.75rem !important;
+        font-size: 0.65rem !important;
     }
 
     .acai-size-card .price {
         color: var(--primary) !important;
-        font-size: 1rem !important;
+        font-size: 0.9rem !important;
     }
 
     .acai-container {
-        gap: 0.8rem !important;
-    }
-
-    .acai-visual img {
-        max-width: 150px !important;
-    }
-
-    .acai-options {
         gap: 0.5rem !important;
     }
 
+    .acai-visual img {
+        max-width: 100px !important;
+    }
+
+    .acai-options {
+        gap: 0.3rem !important;
+    }
+
     .acai-group {
-        padding: 0.4rem !important;
+        padding: 0.3rem !important;
         background: rgba(255, 255, 255, 0.05) !important;
-        border-radius: 6px !important;
+        border-radius: 4px !important;
     }
 
     .acai-group h3 {
         color: var(--primary) !important;
         border-bottom: 1px solid var(--primary) !important;
-        font-size: 0.9rem !important;
-        margin-bottom: 0.3rem !important;
+        font-size: 0.8rem !important;
+        margin-bottom: 0.2rem !important;
     }
 
     .acai-group li {
         color: white !important;
-        font-size: 0.75rem !important;
-        margin-bottom: 0.1rem !important;
+        font-size: 0.65rem !important;
+        margin-bottom: 0.05rem !important;
     }
 
     /* Footer Info for Print */
     .print-footer {
         display: block !important;
-        margin-top: 15px;
+        margin-top: 8px;
         text-align: center;
-        font-size: 0.65rem;
+        font-size: 0.6rem;
         color: #666;
         border-top: 1px solid #eee;
-        padding-top: 8px;
+        padding-top: 4px;
     }
 }
 
