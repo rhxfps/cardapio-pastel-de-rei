@@ -68,6 +68,22 @@ const menuItems = [
         image: "imgspasteis/pastelcalabresa.png"
     },
     {
+        id: 22,
+        name: "Pastel de Frango",
+        category: "salgados",
+        price: 13.00,
+        description: "Frango desfiado suculento com tempero especial da casa.",
+        image: "imgspasteis/pastelfrango.png"
+    },
+    {
+        id: 23,
+        name: "Pastel de Palmito",
+        category: "salgados",
+        price: 13.00,
+        description: "Palmito picado com um creme especial e temperos verdes.",
+        image: "imgspasteis/pastelpalmito.png"
+    },
+    {
         id: 5,
         name: "Pastel Romeu e Julieta",
         category: "doces",
