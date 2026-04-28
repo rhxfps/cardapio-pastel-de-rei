@@ -39,7 +39,7 @@ const menuItems = [
     {
         id: 1,
         name: "Pastel de Carne",
-        category: "salgados",
+        category: "pasteis",
         price: 13.00,
         description: "Carne moída selecionada, temperada com ervas finas e azeitonas.",
         image: "imgspasteis/pasteldecarne.png"
@@ -47,7 +47,7 @@ const menuItems = [
     {
         id: 2,
         name: "Pastel de Queijo",
-        category: "salgados",
+        category: "pasteis",
         price: 13.00,
         description: "Muçarela de alta qualidade derretida com um toque de orégano.",
         image: "imgspasteis/pastelqueijo.png"
@@ -55,7 +55,7 @@ const menuItems = [
     {
         id: 3,
         name: "Bauru",
-        category: "salgados",
+        category: "pasteis",
         price: 13.00,
         description: "A clássica combinação de presunto defumado e muçarela derretida.",
         image: "imgspasteis/pastelpizza.png"
@@ -63,7 +63,7 @@ const menuItems = [
     {
         id: 4,
         name: "Pastel de Calabresa",
-        category: "salgados",
+        category: "pasteis",
         price: 13.00,
         description: "Calabresa moída com cebola e tempero especial da casa.",
         image: "imgspasteis/pastelcalabresa.png"
@@ -71,7 +71,7 @@ const menuItems = [
     {
         id: 22,
         name: "Pastel de Frango",
-        category: "salgados",
+        category: "pasteis",
         price: 13.00,
         description: "Frango desfiado suculento com tempero especial da casa.",
         image: "imgspasteis/pastelfrango.png"
@@ -79,7 +79,7 @@ const menuItems = [
     {
         id: 23,
         name: "Pastel de Palmito",
-        category: "salgados",
+        category: "pasteis",
         price: 13.00,
         description: "Palmito picado com um creme especial e temperos verdes.",
         image: "imgspasteis/pastelpalmito.png"
@@ -109,9 +109,17 @@ const menuItems = [
         image: "imgspasteis/salsicha.png"
     },
     {
+        id: 28,
+        name: "Bolinho de Queijo",
+        category: "salgados",
+        price: 4.00,
+        description: "Bolinho crocante com recheio de muçarela derretida.",
+        image: "imgspasteis/bolinho de queijo.png"
+    },
+    {
         id: 5,
         name: "Pastel Romeu e Julieta",
-        category: "doces",
+        category: "pasteis",
         price: 13.00,
         description: "A combinação perfeita de muçarela derretida e goiabada cascão.",
         image: "imgspasteis/pastelromeuejulieta.png"
@@ -119,7 +127,7 @@ const menuItems = [
     {
         id: 24,
         name: "Nutella com Morango",
-        category: "doces",
+        category: "pasteis",
         price: 18.00,
         description: "Recheio generoso de Nutella original com morangos frescos selecionados.",
         image: "imgspasteis/pastelnutela.png"
@@ -466,8 +474,8 @@ function renderMenu(category, subCategory = 'todos') {
     // Se estiver em "Todos", vamos agrupar por categoria para ficar organizado (importante para o PDF)
     if (category === 'todos') {
         const categories = [
-            { id: 'salgados', name: 'Pastéis Salgados' },
-            { id: 'doces', name: 'Pastéis Doces' },
+            { id: 'pasteis', name: 'Pastéis' },
+            { id: 'salgados', name: 'Salgados' },
             { id: 'bebidas', name: 'Bebidas' }
         ];
 
