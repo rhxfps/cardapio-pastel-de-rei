@@ -487,10 +487,10 @@ function renderMenu(category, subCategory = 'todos') {
     
     let filteredItems;
     if (category === 'todos') {
-        // Inclui salgados, doces e bebidas
+        // Inclui pasteis, salgados e bebidas
         filteredItems = menuItems.filter(item => 
+            item.category === 'pasteis' || 
             item.category === 'salgados' || 
-            item.category === 'doces' || 
             item.category === 'bebidas'
         );
     } else if (category === 'acai') {
