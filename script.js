@@ -257,6 +257,24 @@ const menuItems = [
         image: "imgspasteis/cocacola200ml.png"
     },
     {
+        id: 33,
+        name: "Suco Natural de Laranja 500ml",
+        category: "bebidas",
+        type: "suco",
+        price: 10.00,
+        description: "Suco natural feito na hora com as melhores laranjas.",
+        image: "imgspasteis/suconaturallaranja.png"
+    },
+    {
+        id: 34,
+        name: "Suco de Polpas 500ml",
+        category: "bebidas",
+        type: "suco",
+        price: 10.00,
+        description: "Vários sabores de polpas naturais para sua escolha.",
+        image: "imgspasteis/sucopolpas.png"
+    },
+    {
         id: 101,
         name: "Copo Açaí Pequeno 300ml",
         category: "acai",
