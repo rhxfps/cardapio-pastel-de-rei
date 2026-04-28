@@ -85,6 +85,22 @@ const menuItems = [
         image: "imgspasteis/pastelpalmito.png"
     },
     {
+        id: 29,
+        name: "Pastel de Carne com Queijo",
+        category: "pasteis",
+        price: 13.00,
+        description: "Carne moída temperada com muçarela derretida.",
+        image: "imgspasteis/carnecomqueijo.png"
+    },
+    {
+        id: 30,
+        name: "Pastel de Calabresa com Bacon",
+        category: "pasteis",
+        price: 13.00,
+        description: "Calabresa moída com pedaços crocantes de bacon.",
+        image: "imgspasteis/calabresacombaccon.png"
+    },
+    {
         id: 25,
         name: "Coxinha de Frango",
         category: "salgados",
@@ -117,6 +133,14 @@ const menuItems = [
         image: "imgspasteis/bolinho de queijo.png"
     },
     {
+        id: 31,
+        name: "Coxinha com Catupiry",
+        category: "salgados",
+        price: 4.00,
+        description: "Coxinha crocante com recheio de frango e o verdadeiro Catupiry.",
+        image: "imgspasteis/coxinhacatupiry.png"
+    },
+    {
         id: 5,
         name: "Pastel Romeu e Julieta",
         category: "pasteis",
@@ -131,6 +155,14 @@ const menuItems = [
         price: 18.00,
         description: "Recheio generoso de Nutella original com morangos frescos selecionados.",
         image: "imgspasteis/pastelnutela.png"
+    },
+    {
+        id: 32,
+        name: "Pastel de Banana com Canela",
+        category: "pasteis",
+        price: 13.00,
+        description: "Banana fatiada com açúcar e canela, derretida no ponto certo.",
+        image: "imgspasteis/pastelbanacomcenala.png"
     },
     {
         id: 7,
