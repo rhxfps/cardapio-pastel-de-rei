@@ -1292,12 +1292,13 @@ footer {
         display: block !important;
         background: #4B0082 !important;
         color: white !important;
-        padding: 20px !important;
+        padding: 40px 20px !important; /* Aumentado padding vertical */
         margin: 0 !important;
         box-shadow: none !important;
         border: none !important;
-        border-radius: 0 !important; /* Tela cheia no PDF */
+        border-radius: 0 !important;
         width: 100% !important;
+        min-height: 90vh !important; /* Força o roxo a ocupar quase a página toda */
         max-width: none !important;
         position: static !important;
         transform: none !important;
@@ -1308,67 +1309,67 @@ footer {
     .acai-header h2 {
         color: var(--primary) !important;
         margin-top: 0;
-        font-size: 2rem !important; /* Aumentado de 1.5rem */
+        font-size: 3rem !important; /* Aumentado de 2rem */
     }
 
     .acai-header p {
         color: rgba(255, 255, 255, 0.8) !important;
-        font-size: 0.9rem !important; /* Aumentado de 0.7rem */
-        margin-bottom: 0.5rem !important;
+        font-size: 1.2rem !important; /* Aumentado de 0.9rem */
+        margin-bottom: 1.5rem !important;
     }
 
     .acai-sizes {
-        margin-bottom: 1rem !important;
-        gap: 1rem !important;
+        margin-bottom: 2rem !important;
+        gap: 2rem !important;
     }
 
     .acai-size-card {
         background: rgba(0, 0, 0, 0.2) !important;
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        border: 2px solid rgba(255, 255, 255, 0.2) !important;
         color: white !important;
-        padding: 0.8rem !important;
-        min-width: 120px !important;
+        padding: 1.2rem !important;
+        min-width: 160px !important;
     }
 
     .acai-size-card h4, .acai-size-card .ml {
         color: white !important;
-        font-size: 0.9rem !important;
+        font-size: 1.1rem !important;
     }
 
     .acai-size-card .price {
         color: var(--primary) !important;
-        font-size: 1.2rem !important;
+        font-size: 1.8rem !important;
     }
 
     .acai-container {
-        gap: 2rem !important;
+        gap: 3rem !important;
     }
 
     .acai-visual img {
-        max-width: 180px !important; /* Aumentado de 100px */
+        max-width: 250px !important; /* Aumentado de 180px */
     }
 
     .acai-options {
-        gap: 1rem !important;
+        gap: 1.5rem !important;
     }
 
     .acai-group {
-        padding: 0.8rem !important;
+        padding: 1.2rem !important;
         background: rgba(255, 255, 255, 0.05) !important;
-        border-radius: 8px !important;
+        border-radius: 12px !important;
     }
 
     .acai-group h3 {
         color: var(--primary) !important;
-        border-bottom: 1px solid var(--primary) !important;
-        font-size: 1rem !important;
-        margin-bottom: 0.5rem !important;
+        border-bottom: 2px solid var(--primary) !important;
+        font-size: 1.3rem !important;
+        margin-bottom: 0.8rem !important;
     }
 
     .acai-group li {
         color: white !important;
-        font-size: 0.8rem !important;
-        margin-bottom: 0.2rem !important;
+        font-size: 1rem !important;
+        margin-bottom: 0.4rem !important;
     }
 
     /* Footer Info for Print */
