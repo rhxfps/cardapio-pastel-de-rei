@@ -258,7 +258,7 @@ const menuItems = [
     },
     {
         id: 33,
-        name: "Suco Natural de Laranja 500ml",
+        name: "Suco Natural de Laranja 400ml",
         category: "bebidas",
         type: "suco",
         price: 10.00,
@@ -267,7 +267,7 @@ const menuItems = [
     },
     {
         id: 34,
-        name: "Suco de Polpas 500ml",
+        name: "Suco de Polpas 400ml",
         category: "bebidas",
         type: "suco",
         price: 10.00,
