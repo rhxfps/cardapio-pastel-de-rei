@@ -1292,85 +1292,86 @@ footer {
         display: block !important;
         background: #4B0082 !important;
         color: white !important;
-        padding: 20px 15px !important; /* Reduzido de 40px 20px */
+        padding: 15px !important; /* Ajustado para caber */
         margin: 0 !important;
         box-shadow: none !important;
         border: none !important;
         border-radius: 0 !important;
         width: 100% !important;
-        min-height: auto !important; /* Removido 90vh para evitar quebra */
         max-width: none !important;
         position: static !important;
         transform: none !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
-        page-break-inside: avoid !important; /* Tenta manter tudo junto */
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+        page-break-inside: avoid !important;
     }
 
     .acai-header h2 {
         color: var(--primary) !important;
         margin-top: 0;
-        font-size: 2.5rem !important; /* Reduzido de 3rem */
+        font-size: 2.2rem !important; /* Leve redução */
     }
 
     .acai-header p {
         color: rgba(255, 255, 255, 0.8) !important;
-        font-size: 1rem !important; /* Reduzido de 1.2rem */
-        margin-bottom: 1rem !important; /* Reduzido de 1.5rem */
+        font-size: 0.9rem !important;
+        margin-bottom: 0.8rem !important;
     }
 
     .acai-sizes {
-        margin-bottom: 1.5rem !important; /* Reduzido de 2rem */
-        gap: 1.5rem !important; /* Reduzido de 2rem */
+        margin-bottom: 1rem !important;
+        gap: 1rem !important;
     }
 
     .acai-size-card {
         background: rgba(0, 0, 0, 0.2) !important;
         border: 2px solid rgba(255, 255, 255, 0.2) !important;
         color: white !important;
-        padding: 1rem !important; /* Reduzido de 1.2rem */
-        min-width: 140px !important; /* Reduzido de 160px */
+        padding: 0.8rem !important;
+        min-width: 130px !important;
     }
 
     .acai-size-card h4, .acai-size-card .ml {
         color: white !important;
-        font-size: 1rem !important; /* Reduzido de 1.1rem */
+        font-size: 0.9rem !important;
     }
 
     .acai-size-card .price {
         color: var(--primary) !important;
-        font-size: 1.5rem !important; /* Reduzido de 1.8rem */
+        font-size: 1.3rem !important;
     }
 
     .acai-container {
-        gap: 1.5rem !important; /* Reduzido de 3rem */
+        gap: 1rem !important;
     }
 
     .acai-visual img {
-        max-width: 200px !important; /* Reduzido de 250px */
+        max-width: 180px !important; /* Redução para evitar quebra */
     }
 
     .acai-options {
-        gap: 1rem !important; /* Reduzido de 1.5rem */
+        gap: 0.8rem !important;
     }
 
     .acai-group {
-        padding: 1rem !important; /* Reduzido de 1.2rem */
+        padding: 0.8rem !important;
         background: rgba(255, 255, 255, 0.05) !important;
-        border-radius: 10px !important;
+        border-radius: 8px !important;
     }
 
     .acai-group h3 {
         color: var(--primary) !important;
         border-bottom: 2px solid var(--primary) !important;
-        font-size: 1.2rem !important; /* Reduzido de 1.3rem */
-        margin-bottom: 0.6rem !important; /* Reduzido de 0.8rem */
+        font-size: 1.1rem !important;
+        margin-bottom: 0.4rem !important;
     }
 
     .acai-group li {
         color: white !important;
-        font-size: 0.9rem !important; /* Reduzido de 1rem */
-        margin-bottom: 0.3rem !important; /* Reduzido de 0.4rem */
+        font-size: 0.85rem !important;
+        margin-bottom: 0.2rem !important;
     }
 
     /* Footer Info for Print */
