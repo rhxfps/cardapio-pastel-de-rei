@@ -85,6 +85,30 @@ const menuItems = [
         image: "imgspasteis/pastelpalmito.png"
     },
     {
+        id: 25,
+        name: "Coxinha de Frango",
+        category: "salgados",
+        price: 4.00,
+        description: "Coxinha crocante recheada com frango desfiado temperado.",
+        image: "imgspasteis/COXINHA.png"
+    },
+    {
+        id: 26,
+        name: "Risole de Presunto e Queijo",
+        category: "salgados",
+        price: 4.00,
+        description: "Risole fofinho com recheio de presunto e muçarela.",
+        image: "imgspasteis/risolepresuntoequeijo.png"
+    },
+    {
+        id: 27,
+        name: "Enroladinho de Salsicha",
+        category: "salgados",
+        price: 4.00,
+        description: "Salsicha envolta em uma massa leve e crocante.",
+        image: "imgspasteis/salsicha.png"
+    },
+    {
         id: 5,
         name: "Pastel Romeu e Julieta",
         category: "doces",
