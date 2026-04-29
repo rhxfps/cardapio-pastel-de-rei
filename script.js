@@ -289,6 +289,24 @@ const menuItems = [
         price: 15.00,
         description: "Açaí cremoso de 500ml. Monte do seu jeito!",
         image: "imgspasteis/acai2.png"
+    },
+    {
+        id: 35,
+        name: "Cerveja Skol 269ml",
+        category: "bebidas",
+        type: "cerveja",
+        price: 4.50,
+        description: "Cerveja Skol Pilsen lata gelada.",
+        image: "imgspasteis/cervejaskol.png"
+    },
+    {
+        id: 36,
+        name: "Cerveja Antarctica Original 350ml",
+        category: "bebidas",
+        type: "cerveja",
+        price: 4.50,
+        description: "Cerveja Antarctica Original lata gelada.",
+        image: "imgspasteis/cerveja original.png"
     }
 ];
 
