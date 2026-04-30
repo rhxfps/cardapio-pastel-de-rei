@@ -165,6 +165,14 @@ const menuItems = [
         image: "imgspasteis/pastelbanacomcenala.png"
     },
     {
+        id: 38,
+        name: "Pastel de Doce de Leite",
+        category: "pasteis",
+        price: 14.00,
+        description: "Recheio cremoso do legítimo doce de leite na massa crocante.",
+        image: "imgspasteis/pasteldocedeleite.png"
+    },
+    {
         id: 7,
         name: "Energético TNT Original 473ml",
         category: "bebidas",
