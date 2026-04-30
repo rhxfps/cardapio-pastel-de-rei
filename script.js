@@ -307,6 +307,15 @@ const menuItems = [
         price: 4.50,
         description: "Cerveja Antarctica Original lata gelada.",
         image: "imgspasteis/cerveja original.png"
+    },
+    {
+        id: 37,
+        name: "Cerveja Amstel 350ml",
+        category: "bebidas",
+        type: "cerveja",
+        price: 4.50,
+        description: "Cerveja Amstel Lager lata gelada.",
+        image: "imgspasteis/cervejaamstel.png"
     }
 ];
 
