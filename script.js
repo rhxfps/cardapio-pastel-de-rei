@@ -14,7 +14,7 @@ const menuItems = [
         name: "Coca-Cola 600ml",
         category: "bebidas",
         type: "refrigerante",
-        price: 8.00,
+        price: 9.00,
         description: "Coca-Cola original 600ml bem gelada.",
         image: "imgspasteis/coca.png"
     },
@@ -40,7 +40,7 @@ const menuItems = [
         id: 1,
         name: "Pastel de Carne",
         category: "pasteis",
-        price: 13.00,
+        price: 14.00,
         description: "Carne moída selecionada, temperada com ervas finas e azeitonas.",
         image: "imgspasteis/pasteldecarne.png"
     },
@@ -48,7 +48,7 @@ const menuItems = [
         id: 2,
         name: "Pastel de Queijo",
         category: "pasteis",
-        price: 13.00,
+        price: 14.00,
         description: "Muçarela de alta qualidade derretida com um toque de orégano.",
         image: "imgspasteis/pastelqueijo.png"
     },
@@ -56,7 +56,7 @@ const menuItems = [
         id: 3,
         name: "Bauru",
         category: "pasteis",
-        price: 13.00,
+        price: 14.00,
         description: "A clássica combinação de presunto defumado e muçarela derretida.",
         image: "imgspasteis/pastelpizza.png"
     },
@@ -64,7 +64,7 @@ const menuItems = [
         id: 4,
         name: "Pastel de Calabresa",
         category: "pasteis",
-        price: 13.00,
+        price: 14.00,
         description: "Calabresa moída com cebola e tempero especial da casa.",
         image: "imgspasteis/pastelcalabresa.png"
     },
@@ -72,7 +72,7 @@ const menuItems = [
         id: 22,
         name: "Pastel de Frango",
         category: "pasteis",
-        price: 13.00,
+        price: 14.00,
         description: "Frango desfiado suculento com tempero especial da casa.",
         image: "imgspasteis/pastelfrango.png"
     },
@@ -80,7 +80,7 @@ const menuItems = [
         id: 23,
         name: "Pastel de Palmito",
         category: "pasteis",
-        price: 13.00,
+        price: 14.00,
         description: "Palmito picado com um creme especial e temperos verdes.",
         image: "imgspasteis/pastelpalmito.png"
     },
@@ -88,7 +88,7 @@ const menuItems = [
         id: 29,
         name: "Pastel de Carne com Queijo",
         category: "pasteis",
-        price: 13.00,
+        price: 14.00,
         description: "Carne moída temperada com muçarela derretida.",
         image: "imgspasteis/carnecomqueijo.png"
     },
@@ -96,7 +96,7 @@ const menuItems = [
         id: 30,
         name: "Pastel de Calabresa com Bacon",
         category: "pasteis",
-        price: 13.00,
+        price: 14.00,
         description: "Calabresa moída com pedaços crocantes de bacon.",
         image: "imgspasteis/calabresacombaccon.png"
     },
@@ -104,7 +104,7 @@ const menuItems = [
         id: 25,
         name: "Coxinha de Frango",
         category: "salgados",
-        price: 4.00,
+        price: 4.50,
         description: "Coxinha crocante recheada com frango desfiado temperado.",
         image: "imgspasteis/COXINHA.png"
     },
@@ -112,7 +112,7 @@ const menuItems = [
         id: 26,
         name: "Risole de Presunto e Queijo",
         category: "salgados",
-        price: 4.00,
+        price: 4.50,
         description: "Risole fofinho com recheio de presunto e muçarela.",
         image: "imgspasteis/risolepresuntoequeijo.png"
     },
@@ -120,7 +120,7 @@ const menuItems = [
         id: 27,
         name: "Enroladinho de Salsicha",
         category: "salgados",
-        price: 4.00,
+        price: 4.50,
         description: "Salsicha envolta em uma massa leve e crocante.",
         image: "imgspasteis/salsicha.png"
     },
@@ -128,7 +128,7 @@ const menuItems = [
         id: 28,
         name: "Bolinho de Queijo",
         category: "salgados",
-        price: 4.00,
+        price: 4.50,
         description: "Bolinho crocante com recheio de muçarela derretida.",
         image: "imgspasteis/bolinho de queijo.png"
     },
@@ -136,7 +136,7 @@ const menuItems = [
         id: 31,
         name: "Coxinha com Catupiry",
         category: "salgados",
-        price: 4.00,
+        price: 5.00,
         description: "Coxinha crocante com recheio de frango e o verdadeiro Catupiry.",
         image: "imgspasteis/coxinhacatupiry.png"
     },
@@ -144,7 +144,7 @@ const menuItems = [
         id: 5,
         name: "Pastel Romeu e Julieta",
         category: "pasteis",
-        price: 13.00,
+        price: 14.00,
         description: "A combinação perfeita de muçarela derretida e goiabada cascão.",
         image: "imgspasteis/pastelromeuejulieta.png"
     },
@@ -160,7 +160,7 @@ const menuItems = [
         id: 32,
         name: "Pastel de Banana com Canela",
         category: "pasteis",
-        price: 13.00,
+        price: 14.00,
         description: "Banana fatiada com açúcar e canela, derretida no ponto certo.",
         image: "imgspasteis/pastelbanacomcenala.png"
     },
