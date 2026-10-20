@@ -1,6 +1,6 @@
 {
+  "outputDirectory": "cardapio",
   "rewrites": [
-    { "source": "/", "destination": "/cardapio/index.html" },
-    { "source": "/(.*)", "destination": "/cardapio/$1" }
+    { "source": "/(.*)", "destination": "/$1" }
   ]
 }
