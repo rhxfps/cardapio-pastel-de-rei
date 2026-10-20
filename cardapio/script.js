@@ -113,6 +113,7 @@ function renderFeed(filter) {
 
   feed.scrollTo({ top: 0, behavior: 'instant' });
 
+  buildProgressDots(items.length);
   setupObserver();
   if (window.lucide) lucide.createIcons();
 }
@@ -174,6 +175,35 @@ function createFeedItem(item, idx) {
 }
 
 /* ══════════════════════════════════════════
+   DOTS DE PROGRESSO
+══════════════════════════════════════════ */
+function buildProgressDots(total) {
+  // remove container anterior se existir
+  document.querySelectorAll('.feed-progress').forEach(el => el.remove());
+
+  // acima de 25 itens os dots ficam minúsculos, não vale
+  if (total > 25) return;
+
+  const container = document.createElement('div');
+  container.className = 'feed-progress';
+
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'feed-progress-dot' + (i === 0 ? ' active' : '');
+    dot.dataset.dotIdx = i;
+    container.appendChild(dot);
+  }
+
+  document.body.appendChild(container);
+}
+
+function updateProgressDots(idx) {
+  document.querySelectorAll('.feed-progress-dot').forEach(dot => {
+    dot.classList.toggle('active', parseInt(dot.dataset.dotIdx, 10) === idx);
+  });
+}
+
+/* ══════════════════════════════════════════
    INTERSECTION OBSERVER
 ══════════════════════════════════════════ */
 function setupObserver() {
@@ -182,6 +212,8 @@ function setupObserver() {
   observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+        const idx = parseInt(entry.target.dataset.idx, 10);
+        updateProgressDots(idx);
         if (window.lucide) lucide.createIcons();
       }
     });

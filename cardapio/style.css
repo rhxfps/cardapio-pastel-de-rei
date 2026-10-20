@@ -665,6 +665,35 @@ body {
   height: 20px;
 }
 
+/* ══════════════════════════════════════════
+   DOTS DE PROGRESSO (lateral direita)
+══════════════════════════════════════════ */
+.feed-progress {
+  position: fixed;
+  right: .55rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.feed-progress-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255,255,255,.28);
+  transition: height .3s ease, background .3s ease, box-shadow .3s ease;
+}
+
+.feed-progress-dot.active {
+  height: 20px;
+  background: var(--secondary);
+  box-shadow: 0 0 8px rgba(249,168,37,.7);
+}
+
 /* CATEGORY NAV */
 .category-nav {
   position: fixed;
