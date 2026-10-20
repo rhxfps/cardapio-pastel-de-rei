@@ -174,7 +174,7 @@ body {
   scroll-snap-stop: always;
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: flex-start;
   isolation: isolate;
 }
 
@@ -228,13 +228,12 @@ body {
 .feed-content {
   position: relative;
   z-index: 2;
-  width: min(680px, 100%);
-  padding: 0 max(1.25rem, env(safe-area-inset-left, 0))
-    calc(110px + env(safe-area-inset-bottom, 0))
-    max(1.25rem, env(safe-area-inset-right, 0));
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  width: 100%;
+  max-width: 640px;
+  padding: 0
+    max(1.5rem, env(safe-area-inset-right, 0))
+    calc(clamp(90px, 14dvh, 130px) + env(safe-area-inset-bottom, 0))
+    max(1.5rem, env(safe-area-inset-left, 0));
 }
 
 .feed-text {
@@ -1263,7 +1262,7 @@ body {
 
 @media (max-width: 640px) {
   .feed-content {
-    padding-bottom: calc(132px + env(safe-area-inset-bottom, 0));
+    padding-bottom: calc(clamp(100px, 16dvh, 140px) + env(safe-area-inset-bottom, 0));
   }
 
   .feed-footer {
