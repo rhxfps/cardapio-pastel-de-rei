@@ -2,197 +2,183 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Pastel de Rei - Cardápio</title>
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="app">
 
-  <!-- TOPO FIXO -->
-  <header class="topbar" id="topbar">
-    <div class="topbar-left">
-      <img src="imgs/logo.png" alt="Pastel de Rei" class="topbar-logo" onerror="this.style.display='none'"/>
-      <span class="topbar-name">Pastel de Rei</span>
-    </div>
-    <div class="topbar-right">
-      <button class="icon-btn" id="theme-toggle" title="Alternar tema">
-        <i data-lucide="moon"></i>
-      </button>
-      <button class="icon-btn cart-fab" id="cart-toggle" title="Ver carrinho">
-        <i data-lucide="shopping-cart"></i>
-        <span id="cart-count" class="cart-badge">0</span>
-      </button>
-    </div>
-  </header>
-
-  <!-- FILTROS DE CATEGORIA -->
-  <nav class="category-nav" id="category-nav">
-    <button class="cat-btn active" data-cat="all">
-      <i data-lucide="layout-grid"></i> Todos
-    </button>
-    <button class="cat-btn" data-cat="pasteis-sal">
-      <i data-lucide="utensils"></i> Pastéis Salgados
-    </button>
-    <button class="cat-btn" data-cat="pasteis-doc">
-      <i data-lucide="cookie"></i> Pastéis Doces
-    </button>
-    <button class="cat-btn" data-cat="sal-fritos">
-      <i data-lucide="flame"></i> Fritos
-    </button>
-    <button class="cat-btn" data-cat="sal-assados">
-      <i data-lucide="package"></i> Assados
-    </button>
-  </nav>
-
-  <!-- FEED ESTILO TIKTOK -->
-  <main class="tiktok-feed" id="tiktok-feed">
-    <!-- Slides gerados via JS -->
-  </main>
-
-  <!-- INDICADOR DE SCROLL -->
-  <div class="scroll-hint" id="scroll-hint">
-    <i data-lucide="chevrons-down"></i>
-    <span>Role para ver mais</span>
-  </div>
-
-  <!-- CONTADOR DE POSIÇÃO -->
-  <div class="slide-counter" id="slide-counter">
-    <span id="slide-current">1</span>/<span id="slide-total">1</span>
-  </div>
-
-  <!-- MODAL DO CARRINHO -->
-  <div id="cart-modal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Seu Carrinho</h2>
-        <button class="close-modal" onclick="closeModal('cart-modal')"><i data-lucide="x"></i></button>
-      </div>
-      <div id="cart-items-list" class="cart-items-list">
-        <div class="empty-cart-msg">Seu carrinho está vazio.</div>
-      </div>
-      <div class="cart-modal-footer">
-        <div class="cart-total">
-          <span>Total:</span>
-          <span id="cart-total-val">R$ 0,00</span>
+    <!-- TOP BAR - CLEAN GLASS -->
+    <header class="top-bar">
+      <div class="top-bar-inner">
+        <div class="top-bar-logo">
+          <img src="imgs/logo.png" alt="Pastel de Rei" onerror="this.style.display='none'" />
         </div>
-        <button id="checkout-btn" class="checkout-btn" disabled>
-          Ir para o Checkout
-          <i data-lucide="arrow-right"></i>
-        </button>
+        <span class="top-bar-title">Pastel de Rei</span>
       </div>
-    </div>
-  </div>
+    </header>
 
-  <!-- MODAL DE DETALHES DO PRODUTO -->
-  <div id="product-modal" class="modal">
-    <div class="modal-content product-details">
-      <button class="close-modal" onclick="closeModal('product-modal')"><i data-lucide="x"></i></button>
-      <div id="product-details-content"></div>
-    </div>
-  </div>
+    <!-- BOTÃO TEMA -->
+    <button class="theme-toggle" id="theme-toggle" title="Alternar tema">
+      <i data-lucide="sun"></i>
+    </button>
 
-  <!-- TELA DE CHECKOUT -->
-  <div id="checkout-modal" class="modal">
-    <div class="modal-content checkout-screen">
-      <div class="modal-header">
-        <div class="header-with-back">
-          <button class="back-to-cart" onclick="closeModal('checkout-modal'); openModal('cart-modal')">
-            <i data-lucide="chevron-left"></i> Carrinho
+    <!-- FEED ESTILO TIKTOK -->
+    <main class="tiktok-feed" id="tiktok-feed"></main>
+
+    <!-- CARRINHO FLUTUANTE -->
+    <button id="cart-toggle" class="cart-fab" title="Ver carrinho">
+      <i data-lucide="shopping-cart"></i>
+      <span id="cart-count" class="cart-badge">0</span>
+    </button>
+
+    <!-- MODAL DO CARRINHO -->
+    <div id="cart-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-handle"></div>
+        <div class="modal-header">
+          <h2>Seu Carrinho</h2>
+          <button class="close-modal" onclick="closeModal('cart-modal')"><i data-lucide="x"></i></button>
+        </div>
+
+        <div id="cart-items-list" class="cart-items-list">
+          <div class="empty-cart-msg">Seu carrinho está vazio.</div>
+        </div>
+
+        <div class="cart-modal-footer">
+          <div class="cart-total">
+            <span>Total</span>
+            <span id="cart-total-val">R$ 0,00</span>
+          </div>
+          <button id="checkout-btn" class="checkout-btn" disabled>
+            Ir para o Checkout
+            <i data-lucide="arrow-right"></i>
           </button>
-          <h2>Finalizar Pedido</h2>
         </div>
-        <button class="close-modal" onclick="closeModal('checkout-modal')"><i data-lucide="x"></i></button>
       </div>
-      <div class="checkout-container">
-        <div class="checkout-form">
-          <div class="checkout-step">
-            <div class="step-num">1</div>
-            <h3>Informações de Entrega</h3>
+    </div>
+
+    <!-- MODAL DE DETALHES DO PRODUTO -->
+    <div id="product-modal" class="modal">
+      <div class="modal-content product-details">
+        <div class="modal-handle"></div>
+        <button class="close-modal" onclick="closeModal('product-modal')"><i data-lucide="x"></i></button>
+        <div id="product-details-content"></div>
+      </div>
+    </div>
+
+    <!-- TELA DE CHECKOUT -->
+    <div id="checkout-modal" class="modal">
+      <div class="modal-content checkout-screen">
+        <div class="modal-handle"></div>
+        <div class="modal-header">
+          <div class="header-with-back">
+            <button class="back-to-cart" onclick="closeModal('checkout-modal'); openModal('cart-modal')">
+              <i data-lucide="chevron-left"></i>
+              Voltar
+            </button>
+            <h2>Finalizar Pedido</h2>
           </div>
-          <div class="form-group">
-            <label>Nome Completo</label>
-            <input type="text" id="cust-name" placeholder="Como devemos te chamar?">
-          </div>
-          <div class="form-row">
+          <button class="close-modal" onclick="closeModal('checkout-modal')"><i data-lucide="x"></i></button>
+        </div>
+
+        <div class="checkout-container">
+          <div class="checkout-form">
+            <div class="checkout-step">
+              <div class="step-num">1</div>
+              <h3>Informações de Entrega</h3>
+            </div>
+
             <div class="form-group">
-              <label>CPF (Opcional)</label>
-              <input type="text" id="cust-cpf" placeholder="000.000.000-00">
+              <label>Nome Completo</label>
+              <input type="text" id="cust-name" placeholder="Como devemos te chamar?">
             </div>
-            <div class="form-group">
-              <label>CEP</label>
-              <input type="text" id="cust-cep" placeholder="00000-000" onblur="buscarCEP(this.value)">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>CPF (Opcional)</label>
+                <input type="text" id="cust-cpf" placeholder="000.000.000-00">
+              </div>
+              <div class="form-group">
+                <label>CEP</label>
+                <input type="text" id="cust-cep" placeholder="00000-000" onblur="buscarCEP(this.value)">
+              </div>
             </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group" style="flex:2">
-              <label>Rua / Logradouro</label>
-              <input type="text" id="cust-street" placeholder="Nome da rua">
+
+            <div class="form-row">
+              <div class="form-group" style="flex: 2;">
+                <label>Rua / Logradouro</label>
+                <input type="text" id="cust-street" placeholder="Nome da rua">
+              </div>
+              <div class="form-group" style="flex: 1;">
+                <label>Número</label>
+                <input type="text" id="cust-number" placeholder="Nº">
+              </div>
             </div>
-            <div class="form-group" style="flex:1">
-              <label>Número</label>
-              <input type="text" id="cust-number" placeholder="Nº">
-            </div>
-          </div>
-          <div class="form-row">
+
             <div class="form-group">
               <label>Bairro</label>
               <input type="text" id="cust-neighborhood" placeholder="Bairro">
             </div>
-          </div>
-          <div class="form-group">
-            <label>Ponto de Referência</label>
-            <input type="text" id="cust-ref" placeholder="Perto de onde?">
-          </div>
-          <div class="checkout-step">
-            <div class="step-num">2</div>
-            <h3>Pagamento</h3>
-          </div>
-          <div class="payment-methods">
-            <label class="payment-option">
-              <input type="radio" name="payment" value="Pix" checked>
-              <div class="pay-icon"><i data-lucide="qr-code"></i></div>
-              <span>Pix</span>
-            </label>
-            <label class="payment-option">
-              <input type="radio" name="payment" value="Cartão de Crédito/Débito">
-              <div class="pay-icon"><i data-lucide="credit-card"></i></div>
-              <span>Cartão</span>
-            </label>
-            <label class="payment-option">
-              <input type="radio" name="payment" value="Dinheiro">
-              <div class="pay-icon"><i data-lucide="banknote"></i></div>
-              <span>Dinheiro</span>
-            </label>
-          </div>
-        </div>
-        <div class="checkout-summary">
-          <h3>Resumo do Pedido</h3>
-          <div id="checkout-items-summary"></div>
-          <div class="summary-fees">
-            <div class="summary-fee-item">
-              <span>Subtotal:</span>
-              <span id="summary-subtotal-val">R$ 0,00</span>
+
+            <div class="form-group">
+              <label>Ponto de Referência</label>
+              <input type="text" id="cust-ref" placeholder="Perto de onde?">
             </div>
-            <div class="summary-fee-item">
-              <span>Taxa de Entrega:</span>
-              <span>R$ 5,00</span>
+
+            <div class="checkout-step">
+              <div class="step-num">2</div>
+              <h3>Pagamento</h3>
+            </div>
+
+            <div class="payment-methods">
+              <label class="payment-option">
+                <input type="radio" name="payment" value="Pix" checked>
+                <div class="pay-icon"><i data-lucide="qr-code"></i></div>
+                <span>Pix</span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="Cartão de Crédito/Débito">
+                <div class="pay-icon"><i data-lucide="credit-card"></i></div>
+                <span>Cartão</span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="Dinheiro">
+                <div class="pay-icon"><i data-lucide="banknote"></i></div>
+                <span>Dinheiro</span>
+              </label>
             </div>
           </div>
-          <div class="summary-total">
-            <span>Total Final:</span>
-            <span id="summary-total-val">R$ 0,00</span>
+
+          <div class="checkout-summary">
+            <h3>Resumo do Pedido</h3>
+            <div id="checkout-items-summary"></div>
+            <div class="summary-fees">
+              <div class="summary-fee-item">
+                <span>Subtotal</span>
+                <span id="summary-subtotal-val">R$ 0,00</span>
+              </div>
+              <div class="summary-fee-item">
+                <span>Taxa de Entrega</span>
+                <span>R$ 5,00</span>
+              </div>
+            </div>
+            <div class="summary-total">
+              <span>Total Final</span>
+              <span id="summary-total-val">R$ 0,00</span>
+            </div>
+            <p class="delivery-notice">* Pedido enviado para nosso sistema via WhatsApp</p>
+            <button class="confirm-btn" onclick="sendWhatsAppOrder()">
+              Confirmar e Enviar WhatsApp
+              <i data-lucide="check-circle"></i>
+            </button>
           </div>
-          <p class="delivery-notice">* Pedido enviado via WhatsApp</p>
-          <button class="confirm-btn" onclick="sendWhatsAppOrder()">
-            Confirmar e Enviar WhatsApp
-            <i data-lucide="check-circle"></i>
-          </button>
         </div>
       </div>
     </div>
+
   </div>
 
   <script src="script.js"></script>
