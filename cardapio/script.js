@@ -32,10 +32,18 @@ const defaultData = {
 };
 
 const catLabels = {
-  'pasteis-sal': '🥟 Pastéis Salgados',
-  'pasteis-doc': '🍬 Pastéis Doces',
-  'sal-fritos':  '🍗 Salgados Fritos',
-  'sal-assados': '🥐 Salgados Assados',
+  'pasteis-sal': 'Pastéis Salgados',
+  'pasteis-doc': 'Pastéis Doces',
+  'sal-fritos':  'Salgados Fritos',
+  'sal-assados': 'Salgados Assados',
+};
+
+/* ícone lucide por categoria */
+const catIcons = {
+  'pasteis-sal': 'utensils',
+  'pasteis-doc': 'cookie',
+  'sal-fritos':  'flame',
+  'sal-assados': 'package',
 };
 
 /* paletas de cor para slides sem imagem */
@@ -208,7 +216,7 @@ function createSlide(item, idx) {
     : '';
 
   // Label categoria
-  const catHtml = `<div class="slide-cat-label">${catLabels[item.cat] || item.cat}</div>`;
+  const catHtml = `<div class="slide-cat-label"><i data-lucide="${catIcons[item.cat] || 'tag'}"></i>${catLabels[item.cat] || item.cat}</div>`;
 
   // Botões laterais
   const actionsHtml = `
@@ -227,7 +235,10 @@ function createSlide(item, idx) {
   // Conteúdo inferior
   const contentHtml = `
     <div class="slide-content">
-      <span class="slide-category">${catLabels[item.cat] || item.cat}</span>
+      <span class="slide-category">
+        <i data-lucide="${catIcons[item.cat] || 'tag'}"></i>
+        ${catLabels[item.cat] || item.cat}
+      </span>
       <h2 class="slide-name">${item.n}</h2>
       <p class="slide-desc">${item.d}</p>
       <div class="slide-price-row">
@@ -334,23 +345,76 @@ function openProductDetails(productId) {
   }
   if (!product) return;
 
-  const content = document.getElementById('product-details-content');
+  // Reseta quantidade para 1 ao abrir
+  let qty = 1;
+
   const mediaHtml = product.img
     ? `<img src="${product.img}" class="pd-img" alt="${escHtml(product.n)}">`
-    : `<i data-lucide="${product.i}"></i>`;
+    : `<div class="pd-icon-wrap"><i data-lucide="${catIcons[product.cat] || 'utensils'}"></i></div>`;
 
+  const tagHtml = product.t
+    ? `<span class="pd-badge">${product.t}</span>`
+    : '';
+
+  const content = document.getElementById('product-details-content');
   content.innerHTML = `
-    <div class="pd-hero">${mediaHtml}</div>
+    <div class="pd-hero">
+      ${mediaHtml}
+      <div class="pd-hero-overlay"></div>
+      ${tagHtml}
+    </div>
+
     <div class="pd-body">
+
+      <div class="pd-meta">
+        <span class="pd-cat-chip">
+          <i data-lucide="${catIcons[product.cat] || 'tag'}"></i>
+          ${catLabels[product.cat] || product.cat}
+        </span>
+      </div>
+
       <h2 class="pd-name">${product.n}</h2>
       <p class="pd-desc">${product.d}</p>
-      <div class="pd-action">
-        <span class="pd-price">R$ ${formatPrice(product.p)}</span>
-        <button class="btn-order"
-          onclick="addToCart('${product.id}','${escHtml(product.n)}',${product.p}); closeModal('product-modal')">
-          Adicionar ao Carrinho
-        </button>
+
+      <div class="pd-features">
+        <div class="pd-feature">
+          <i data-lucide="flame"></i>
+          <span>Feito na hora</span>
+        </div>
+        <div class="pd-feature">
+          <i data-lucide="badge-check"></i>
+          <span>Alta qualidade</span>
+        </div>
+        <div class="pd-feature">
+          <i data-lucide="truck"></i>
+          <span>Delivery rápido</span>
+        </div>
       </div>
+
+      <div class="pd-footer">
+        <div class="pd-price-block">
+          <span class="pd-price-label">Preço unitário</span>
+          <span class="pd-price">R$ ${formatPrice(product.p)}</span>
+        </div>
+
+        <div class="pd-order-row">
+          <div class="pd-qty">
+            <button class="pd-qty-btn" id="pd-minus" onclick="pdChangeQty(-1, ${product.p})">
+              <i data-lucide="minus"></i>
+            </button>
+            <span id="pd-qty-val">1</span>
+            <button class="pd-qty-btn" id="pd-plus" onclick="pdChangeQty(1, ${product.p})">
+              <i data-lucide="plus"></i>
+            </button>
+          </div>
+          <button class="pd-add-btn" id="pd-add-btn"
+            onclick="addToCart('${product.id}','${escHtml(product.n)}',${product.p}, document.getElementById('pd-qty-val').textContent); closeModal('product-modal')">
+            <i data-lucide="shopping-cart"></i>
+            Adicionar · R$ <span id="pd-total-price">${formatPrice(product.p)}</span>
+          </button>
+        </div>
+      </div>
+
     </div>
   `;
 
@@ -358,15 +422,27 @@ function openProductDetails(productId) {
   if (window.lucide) lucide.createIcons();
 }
 
+/* Controle de quantidade no modal de detalhes */
+function pdChangeQty(delta, unitPrice) {
+  const qtyEl  = document.getElementById('pd-qty-val');
+  const totEl  = document.getElementById('pd-total-price');
+  let qty = parseInt(qtyEl.textContent, 10) + delta;
+  if (qty < 1) qty = 1;
+  if (qty > 99) qty = 99;
+  qtyEl.textContent = qty;
+  totEl.textContent = formatPrice(unitPrice * qty);
+}
+
 /* ══════════════════════════════════════════
    CARRINHO
 ══════════════════════════════════════════ */
-function addToCart(id, name, price) {
+function addToCart(id, name, price, qty = 1) {
+  const quantity = parseInt(qty, 10) || 1;
   const existing = cart.find(i => i.id === id);
   if (existing) {
-    existing.quantity++;
+    existing.quantity += quantity;
   } else {
-    cart.push({ id, name, price, quantity: 1 });
+    cart.push({ id, name, price, quantity });
   }
   updateCart();
   animateCartBadge();
