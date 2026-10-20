@@ -53,40 +53,40 @@ body {
 /* TOP BAR - CLEAN GLASS */
 .top-bar {
   position: fixed;
-  top: max(10px, env(safe-area-inset-top, 0));
+  top: max(8px, env(safe-area-inset-top, 0));
   left: 50%;
   transform: translateX(-50%);
   z-index: 60;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px;
+  padding: 3px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06));
+  backdrop-filter: blur(16px) saturate(170%);
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
   border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0 12px 90px -28px rgba(0, 0, 0, 0.95);
-  transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
-  will-change: transform, opacity;
+  box-shadow: 0 10px 60px -24px rgba(0, 0, 0, 0.95);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  will-change: transform;
 }
 
 .top-bar-inner {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  height: 40px;
-  padding: 0 10px 0 4px;
+  gap: 6px;
+  height: 36px;
+  padding: 0 12px 0 4px;
   border-radius: 999px;
-  background: var(--glass-bg);
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.16), rgba(12, 12, 12, 0.62));
   border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 
 .top-bar-logo {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 999px;
   display: flex;
   align-items: center;
@@ -94,12 +94,11 @@ body {
   overflow: hidden;
   background: radial-gradient(
     circle at 50% 40%,
-    rgba(255, 255, 255, 0.32),
+    rgba(255, 255, 255, 0.28),
     rgba(255, 255, 255, 0.08)
   );
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.28),
-    0 8px 40px -20px rgba(0, 0, 0, 0.95);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.24);
 }
 
 .top-bar-logo img {
@@ -109,11 +108,11 @@ body {
 }
 
 .top-bar-title {
-  font-size: 0.94rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  letter-spacing: 0.1px;
+  letter-spacing: 0.08px;
   color: var(--text-main);
-  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 4px 36px rgba(0, 0, 0, 0.7);
   white-space: nowrap;
   padding-right: 2px;
 }
@@ -121,23 +120,23 @@ body {
 /* THEME TOGGLE */
 .theme-toggle {
   position: fixed;
-  top: max(10px, env(safe-area-inset-top, 0));
-  right: max(12px, env(safe-area-inset-right, 0));
-  width: 44px;
-  height: 44px;
+  top: max(8px, env(safe-area-inset-top, 0));
+  right: max(10px, env(safe-area-inset-right, 0));
+  width: 38px;
+  height: 38px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  background: var(--glass-bg);
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.16), rgba(12, 12, 12, 0.56));
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
-  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(16px) saturate(170%);
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
+  box-shadow: 0 10px 60px -26px rgba(0, 0, 0, 0.98);
   z-index: 65;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.18s ease;
 }
 
 .theme-toggle:active {
@@ -145,8 +144,8 @@ body {
 }
 
 .theme-toggle i {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   stroke-width: 2.2;
 }
 
