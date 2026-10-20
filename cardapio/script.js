@@ -252,23 +252,27 @@ function openProductDetails(productId) {
     <div class="pd-hero">
       ${mediaHtml}
       <div class="pd-hero-gradient"></div>
-      ${tagHtml}
+      <div class="pd-hero-text">
+        ${tagHtml}
+        <p class="pd-cat">${catLabels[product.cat] || product.cat}</p>
+        <h2 class="pd-name">${product.n}</h2>
+      </div>
     </div>
 
     <div class="pd-body">
-      <p class="pd-cat">${catLabels[product.cat] || product.cat}</p>
-      <h2 class="pd-name">${product.n}</h2>
       <p class="pd-desc">${product.d}</p>
 
       <div class="pd-chips">
-        <span class="pd-chip">Feito na hora</span>
-        <span class="pd-chip">Alta qualidade</span>
-        <span class="pd-chip">Delivery rápido</span>
+        <span class="pd-chip">🔥 Feito na hora</span>
+        <span class="pd-chip">⭐ Alta qualidade</span>
+        <span class="pd-chip">🛵 Delivery rápido</span>
       </div>
+
+      <div class="pd-divider"></div>
 
       <div class="pd-footer">
         <div class="pd-price-block">
-          <span class="pd-price-label">Preço unit.</span>
+          <span class="pd-price-label">A partir de</span>
           <span class="pd-price">R$ ${formatPrice(product.p)}</span>
         </div>
         <div class="pd-order-row">
@@ -322,41 +326,46 @@ function animateBadge() {
 }
 
 function updateCart() {
-  const countEl    = document.getElementById('cart-count');
-  const itemsEl    = document.getElementById('cart-items-list');
-  const totalEl    = document.getElementById('cart-total-val');
-  const checkoutBtn = document.getElementById('checkout-btn');
+  const fab      = document.getElementById('cart-toggle');
+  const countEl  = document.getElementById('cart-count');
+  const itemsEl  = document.getElementById('cart-items-list');
+  const totalEl  = document.getElementById('cart-total-val');
+  const btn      = document.getElementById('checkout-btn');
 
   const totalQty = cart.reduce((s, i) => s + i.quantity, 0);
   countEl.textContent = totalQty;
 
+  /* FAB visível só com itens */
+  fab.classList.toggle('has-items', cart.length > 0);
+
   if (!cart.length) {
     itemsEl.innerHTML = `<div class="empty-cart-msg">Seu carrinho está vazio.</div>`;
     totalEl.textContent = 'R$ 0,00';
-    checkoutBtn.disabled = true;
+    btn.disabled = true;
     return;
   }
 
   let total = 0;
   itemsEl.innerHTML = cart.map(item => {
-    total += item.price * item.quantity;
+    const sub = item.price * item.quantity;
+    total += sub;
     return `
       <div class="cart-item">
         <div class="cart-item-info">
           <div class="cart-item-name">${item.name}</div>
-          <div class="cart-item-price">R$ ${formatPrice(item.price)}</div>
+          <div class="cart-item-unit">R$ ${formatPrice(item.price)} / un.</div>
         </div>
         <div class="cart-item-controls">
           <button class="control-btn" onclick="changeQty('${item.id}',-1)">−</button>
           <span>${item.quantity}</span>
           <button class="control-btn" onclick="changeQty('${item.id}',1)">+</button>
         </div>
+        <div class="cart-item-subtotal">Subtotal: R$ ${formatPrice(sub)}</div>
       </div>`;
   }).join('');
 
   totalEl.textContent = `R$ ${formatPrice(total)}`;
-  checkoutBtn.disabled = false;
-  if (window.lucide) lucide.createIcons();
+  btn.disabled = false;
 }
 
 function changeQty(id, delta) {
