@@ -694,6 +694,51 @@ body {
   box-shadow: 0 0 8px rgba(249,168,37,.7);
 }
 
+/* ══════════════════════════════════════════
+   ANIMAÇÕES DE ENTRADA DOS FEED ITEMS
+══════════════════════════════════════════ */
+
+/* Imagem: Ken-Burns — escala de 1.06 → 1 ao entrar */
+.feed-bg {
+  transform: scale(1.06);
+  transition: transform 5s ease;
+}
+
+.feed-item.active .feed-bg {
+  transform: scale(1);
+}
+
+/* Conteúdo: sobe + aparece */
+.feed-text,
+.feed-footer {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+.feed-item.active .feed-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feed-item.active .feed-footer {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .12s;
+}
+
+/* Categoria pill: aparece levemente antes do nome */
+.feed-category {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .4s ease, transform .4s ease;
+}
+
+.feed-item.active .feed-category {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* CATEGORY NAV */
 .category-nav {
   position: fixed;

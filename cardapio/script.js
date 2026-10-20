@@ -211,10 +211,15 @@ function setupObserver() {
 
   observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
+      const idx = parseInt(entry.target.dataset.idx, 10);
       if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-        const idx = parseInt(entry.target.dataset.idx, 10);
+        // Ativa o item atual
+        entry.target.classList.add('active');
         updateProgressDots(idx);
         if (window.lucide) lucide.createIcons();
+      } else {
+        // Remove ao sair para que a animação reexecute na volta
+        entry.target.classList.remove('active');
       }
     });
   }, { root: feed, threshold: 0.5 });
