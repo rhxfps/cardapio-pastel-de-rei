@@ -231,11 +231,15 @@ function setupObserver() {
 ══════════════════════════════════════════ */
 function openProductDetails(productId) {
   let product = null;
+  let foundCat = '';
   for (const cat in data) {
-    product = data[cat].find(p => p.id === productId);
-    if (product) break;
+    const found = data[cat].find(p => p.id === productId);
+    if (found) { product = found; foundCat = cat; break; }
   }
   if (!product) return;
+
+  /* garante que product.cat existe */
+  product = { ...product, cat: foundCat };
 
   const content = document.getElementById('product-details-content');
 
