@@ -35,7 +35,7 @@ html, body {
 }
 
 /* ══════════════════════════════════════════
-   TOP BAR
+   TOP BAR — logo + carrinho integrado
 ══════════════════════════════════════════ */
 .top-bar {
   position: fixed;
@@ -45,7 +45,7 @@ html, body {
   z-index: 60;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
   padding: 3px;
   border-radius: 999px;
   background: radial-gradient(circle at top, rgba(255,255,255,.14), rgba(255,255,255,.06));
@@ -86,29 +86,40 @@ html, body {
   padding-right: 2px;
 }
 
-/* ══════════════════════════════════════════
-   THEME TOGGLE
-══════════════════════════════════════════ */
-.theme-toggle {
-  position: fixed;
-  top: max(8px, env(safe-area-inset-top,0));
-  right: max(10px, env(safe-area-inset-right,0));
-  width: 38px; height: 38px;
+/* Botão carrinho dentro da topbar */
+.top-bar-cart {
+  position: relative;
+  width: 36px; height: 36px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.18);
-  background: radial-gradient(circle at top, rgba(255,255,255,.16), rgba(12,12,12,.56));
+  background: rgba(255,255,255,.1);
   color: #fff;
   display: flex; align-items: center; justify-content: center;
-  backdrop-filter: blur(16px) saturate(170%);
-  -webkit-backdrop-filter: blur(16px) saturate(170%);
-  box-shadow: 0 10px 60px -26px rgba(0,0,0,.98);
-  z-index: 65;
   cursor: pointer;
-  transition: transform .18s ease;
+  transition: background .18s ease, transform .18s ease;
+  flex-shrink: 0;
 }
+.top-bar-cart:hover   { background: rgba(255,255,255,.2); }
+.top-bar-cart:active  { transform: scale(.96); }
+.top-bar-cart i       { width: 17px; height: 17px; stroke-width: 2.2; }
 
-.theme-toggle:active { transform: scale(.98); }
-.theme-toggle i { width: 18px; height: 18px; stroke-width: 2.2; }
+.top-bar-cart .cart-badge {
+  position: absolute;
+  top: -5px; right: -5px;
+  min-width: 18px; height: 18px; padding: 0 4px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 40% 20%, #ffcf4d, #f9a825);
+  color: #3f2000; font-weight: 800; font-size: .7rem;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid rgba(10,10,10,.98);
+  transition: transform .16s ease;
+  /* oculto até ter itens */
+  opacity: 0; visibility: hidden;
+  transform: scale(.6);
+}
+.top-bar-cart.has-items .cart-badge {
+  opacity: 1; visibility: visible; transform: scale(1);
+}
 
 /* ══════════════════════════════════════════
    FEED
@@ -285,47 +296,6 @@ html, body {
 }
 
 /* ══════════════════════════════════════════
-   CART FAB — mesmo estilo do botão info
-══════════════════════════════════════════ */
-.cart-fab {
-  position: fixed;
-  bottom: calc(max(18px, env(safe-area-inset-bottom,0)) + 2px);
-  right: max(16px, env(safe-area-inset-right,0));
-  width: clamp(52px,6vw,58px); height: clamp(52px,6vw,58px);
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.22);
-  background: var(--glass-bg);
-  color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
-  box-shadow: var(--glass-shadow);
-  z-index: 70;
-  cursor: pointer;
-  /* oculto por padrão */
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: transform .2s ease, opacity .28s ease, visibility .28s ease;
-}
-.cart-fab.has-items {
-  opacity: 1; visibility: visible; pointer-events: auto;
-}
-.cart-fab:active { transform: scale(.97); }
-.cart-fab i { width: 22px; height: 22px; stroke-width: 2.2; }
-
-.cart-badge {
-  position: absolute; top: -5px; right: -5px;
-  min-width: 22px; height: 22px; padding: 0 5px;
-  border-radius: 999px;
-  background: radial-gradient(circle at 40% 20%, #ffcf4d, #f9a825);
-  color: #3f2000; font-weight: 800; font-size: .78rem;
-  display: flex; align-items: center; justify-content: center;
-  border: 2px solid rgba(10,10,10,.98);
-  transition: transform .16s ease;
-}
-
-/* ══════════════════════════════════════════
    DOTS DE PROGRESSO
 ══════════════════════════════════════════ */
 .feed-progress {
@@ -449,13 +419,12 @@ html, body {
   font-size: .95rem;
 }
 
-/* cart-item: layout com linha de subtotal */
+/* cart-item com thumbnail */
 .cart-item {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto;
-  gap: 4px 12px;
-  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
   border-radius: 18px;
   background: rgba(255,255,255,.07);
   border: 1px solid rgba(255,255,255,.1);
@@ -463,42 +432,53 @@ html, body {
   -webkit-backdrop-filter: blur(12px);
 }
 
+.cart-item-thumb {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: rgba(255,255,255,.1);
+}
+
 .cart-item-info {
-  grid-column: 1; grid-row: 1;
+  flex: 1; min-width: 0;
   display: flex; flex-direction: column; gap: 3px;
 }
 
-.cart-item-name { font-weight: 600; font-size: .97rem; line-height: 1.3; }
+.cart-item-name {
+  font-weight: 600; font-size: .94rem; line-height: 1.3;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
 
 .cart-item-unit {
-  color: rgba(255,255,255,.48); font-size: .8rem;
+  color: rgba(255,255,255,.45); font-size: .78rem;
+}
+
+.cart-item-subtotal {
+  font-size: .82rem; font-weight: 700;
+  color: rgba(255,255,255,.6);
 }
 
 .cart-item-controls {
-  grid-column: 2; grid-row: 1 / 3;
-  display: flex; align-items: center; gap: 10px;
-  padding: 8px 12px; border-radius: 999px;
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 10px; border-radius: 999px;
   background: rgba(255,255,255,.1);
   border: 1px solid rgba(255,255,255,.14);
-  align-self: center;
+  flex-shrink: 0;
 }
-.cart-item-controls span { min-width: 20px; text-align: center; font-weight: 700; }
+.cart-item-controls span {
+  min-width: 18px; text-align: center; font-weight: 700; font-size: .95rem;
+}
 
 .control-btn {
   border: none; background: transparent; color: #fff;
   font-size: 1.2rem; line-height: 1; cursor: pointer;
-  width: 28px; height: 28px;
+  width: 26px; height: 26px;
   display: flex; align-items: center; justify-content: center;
   border-radius: 999px;
   transition: color .15s;
 }
 .control-btn:hover { color: var(--secondary); }
-
-.cart-item-subtotal {
-  grid-column: 1; grid-row: 2;
-  font-size: .84rem; font-weight: 700;
-  color: rgba(255,255,255,.65);
-}
 
 .cart-modal-footer {
   padding: 14px max(20px,env(safe-area-inset-left,0)) calc(18px + env(safe-area-inset-bottom,0)) max(20px,env(safe-area-inset-right,0));

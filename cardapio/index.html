@@ -10,7 +10,7 @@
 <body>
   <div class="app">
 
-    <!-- TOP BAR - CLEAN GLASS -->
+    <!-- TOP BAR - logo + carrinho -->
     <header class="top-bar">
       <div class="top-bar-inner">
         <div class="top-bar-logo">
@@ -18,12 +18,11 @@
         </div>
         <span class="top-bar-title">Pastel de Rei</span>
       </div>
+      <button id="cart-toggle" class="top-bar-cart" title="Ver carrinho">
+        <i data-lucide="shopping-cart"></i>
+        <span id="cart-count" class="cart-badge">0</span>
+      </button>
     </header>
-
-    <!-- BOTÃO TEMA -->
-    <button class="theme-toggle" id="theme-toggle" title="Alternar tema">
-      <i data-lucide="sun"></i>
-    </button>
 
     <!-- FILTROS DE CATEGORIA -->
     <nav class="category-nav" id="category-nav">
@@ -34,12 +33,6 @@
       <button class="cat-btn" data-cat="sal-assados">Assados</button>
     </nav>
     <main class="tiktok-feed" id="tiktok-feed"></main>
-
-    <!-- CARRINHO FLUTUANTE -->
-    <button id="cart-toggle" class="cart-fab" title="Ver carrinho">
-      <i data-lucide="shopping-cart"></i>
-      <span id="cart-count" class="cart-badge">0</span>
-    </button>
 
     <!-- MODAL DO CARRINHO -->
     <div id="cart-modal" class="modal">

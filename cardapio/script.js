@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   data = JSON.parse(localStorage.getItem('pastel_catalog')) || defaultData;
 
-  initTheme();
   buildFlatList();
   renderFeed('all');
 
@@ -326,22 +325,22 @@ function animateBadge() {
 }
 
 function updateCart() {
-  const fab      = document.getElementById('cart-toggle');
+  const btn      = document.getElementById('cart-toggle');
   const countEl  = document.getElementById('cart-count');
   const itemsEl  = document.getElementById('cart-items-list');
   const totalEl  = document.getElementById('cart-total-val');
-  const btn      = document.getElementById('checkout-btn');
+  const checkout = document.getElementById('checkout-btn');
 
   const totalQty = cart.reduce((s, i) => s + i.quantity, 0);
   countEl.textContent = totalQty;
 
-  /* FAB visível só com itens */
-  fab.classList.toggle('has-items', cart.length > 0);
+  /* badge visível só com itens */
+  btn.classList.toggle('has-items', cart.length > 0);
 
   if (!cart.length) {
     itemsEl.innerHTML = `<div class="empty-cart-msg">Seu carrinho está vazio.</div>`;
     totalEl.textContent = 'R$ 0,00';
-    btn.disabled = true;
+    checkout.disabled = true;
     return;
   }
 
@@ -349,23 +348,35 @@ function updateCart() {
   itemsEl.innerHTML = cart.map(item => {
     const sub = item.price * item.quantity;
     total += sub;
+    /* encontra a imagem do produto */
+    let imgSrc = '';
+    for (const cat in data) {
+      const p = data[cat].find(p => p.id === item.id);
+      if (p) { imgSrc = p.img || ''; break; }
+    }
+    const thumbHtml = imgSrc
+      ? `<img class="cart-item-thumb" src="${imgSrc}" alt="${item.name}">`
+      : `<div class="cart-item-thumb" style="display:flex;align-items:center;justify-content:center;"><i data-lucide="utensils" style="width:22px;height:22px;opacity:.4"></i></div>`;
+
     return `
       <div class="cart-item">
+        ${thumbHtml}
         <div class="cart-item-info">
           <div class="cart-item-name">${item.name}</div>
           <div class="cart-item-unit">R$ ${formatPrice(item.price)} / un.</div>
+          <div class="cart-item-subtotal">R$ ${formatPrice(sub)}</div>
         </div>
         <div class="cart-item-controls">
           <button class="control-btn" onclick="changeQty('${item.id}',-1)">−</button>
           <span>${item.quantity}</span>
           <button class="control-btn" onclick="changeQty('${item.id}',1)">+</button>
         </div>
-        <div class="cart-item-subtotal">Subtotal: R$ ${formatPrice(sub)}</div>
       </div>`;
   }).join('');
 
   totalEl.textContent = `R$ ${formatPrice(total)}`;
-  btn.disabled = false;
+  checkout.disabled = false;
+  if (window.lucide) lucide.createIcons();
 }
 
 function changeQty(id, delta) {
@@ -495,30 +506,6 @@ async function sendWhatsAppOrder() {
   }, 2200);
 }
 
-/* ══════════════════════════════════════════
-   TEMA
-══════════════════════════════════════════ */
-function initTheme() {
-  const btn  = document.getElementById('theme-toggle');
-  const body = document.body;
-  const saved = localStorage.getItem('theme') || 'dark';
-  body.setAttribute('data-theme', saved);
-  setThemeIcon(saved);
-  btn.addEventListener('click', () => {
-    const next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    body.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-    setThemeIcon(next);
-  });
-}
-
-function setThemeIcon(theme) {
-  const btn = document.getElementById('theme-toggle');
-  btn.innerHTML = theme === 'dark'
-    ? '<i data-lucide="sun"></i>'
-    : '<i data-lucide="moon"></i>';
-  if (window.lucide) lucide.createIcons();
-}
 
 /* ══════════════════════════════════════════
    MÁSCARAS
