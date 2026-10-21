@@ -2,40 +2,43 @@
    DADOS DO CARDÁPIO
 ══════════════════════════════════════════ */
 const defaultData = {
+  'espetinhos': [
+    { id: 'esp1', img: 'imgspasteis/pasteldecarne.png',        n: 'Espetinho de Carne',    d: 'Carne bovina temperada na brasa, suculenta e no ponto.', p: 8.00, t: 'Destaque' },
+    { id: 'esp2', img: 'imgspasteis/pastelfrango.png',         n: 'Espetinho de Frango',   d: 'Frango marinado grelhado na brasa com tempero especial da casa.', p: 8.00 },
+    { id: 'esp3', img: 'imgspasteis/calabresacombaccon.png',   n: 'Espetinho Misto',        d: 'Carne e frango intercalados com pimentão e cebola na brasa.', p: 9.00 },
+    { id: 'esp4', img: 'imgspasteis/pastelcalabresa.png',      n: 'Espetinho de Calabresa', d: 'Calabresa defumada grelhada com chimichurri artesanal.', p: 8.00 },
+  ],
   'pasteis-sal': [
-    { id: 'ps1', img: 'imgspasteis/pasteldecarne.png',         n: 'Carne Moída',         d: 'Carne de primeira com tempero caseiro, cebola e tomate frescos.', p: 13.00 },
-    { id: 'ps2', img: 'imgspasteis/pastelqueijo.png',          n: 'Queijo',              d: 'Mussarela premium derretida com um toque de orégano. Crocante por fora, cremoso por dentro!', p: 13.00, t: 'Mais Pedido' },
-    { id: 'ps3', img: 'imgspasteis/pastelfrango.png',          n: 'Frango com Catupiry', d: 'Frango desfiado suculento com o verdadeiro Catupiry.', p: 13.00 },
-    { id: 'ps4', img: 'imgspasteis/pastelpizza.png',           n: 'Pizza',               d: 'Mussarela, presunto, tomate e orégano na medida certa.', p: 13.00 },
-    { id: 'ps5', img: 'imgspasteis/pastelcalabresa.png',       n: 'Calabresa',           d: 'Calabresa suculenta com cebola caramelada e pimentão.', p: 13.00 },
-    { id: 'ps6', img: 'imgspasteis/calabresacombaccon.png',    n: 'Calabresa com Bacon', d: 'Calabresa com bacon crocante, combinação irresistível.', p: 14.00, t: 'Especial' },
-    { id: 'ps7', img: 'imgspasteis/carnecomqueijo.png',        n: 'Carne com Queijo',    d: 'Carne moída temperada com mussarela derretida.', p: 14.00 },
-    { id: 'ps8', img: 'imgspasteis/pastelpalmito.png',         n: 'Palmito',             d: 'Palmito pupunha refogado com temperos especiais da casa.', p: 13.00 },
+    { id: 'ps1', img: 'imgspasteis/pasteldecarne.png',         n: 'Carne Moída',            d: 'Carne de primeira com tempero caseiro, cebola e tomate frescos.', p: 13.00 },
+    { id: 'ps2', img: 'imgspasteis/pastelqueijo.png',          n: 'Queijo',                 d: 'Mussarela premium derretida com um toque de orégano. Crocante por fora, cremoso por dentro!', p: 13.00, t: 'Mais Pedido' },
+    { id: 'ps3', img: 'imgspasteis/pastelfrango.png',          n: 'Frango com Catupiry',    d: 'Frango desfiado suculento com o verdadeiro Catupiry.', p: 13.00 },
+    { id: 'ps4', img: 'imgspasteis/pastelpizza.png',           n: 'Pizza',                  d: 'Mussarela, presunto, tomate e orégano na medida certa.', p: 13.00 },
+    { id: 'ps5', img: 'imgspasteis/pastelcalabresa.png',       n: 'Calabresa',              d: 'Calabresa suculenta com cebola caramelada e pimentão.', p: 13.00 },
+    { id: 'ps6', img: 'imgspasteis/calabresacombaccon.png',    n: 'Calabresa com Bacon',    d: 'Calabresa com bacon crocante, combinação irresistível.', p: 14.00, t: 'Especial' },
+    { id: 'ps7', img: 'imgspasteis/carnecomqueijo.png',        n: 'Carne com Queijo',       d: 'Carne moída temperada com mussarela derretida.', p: 14.00 },
+    { id: 'ps8', img: 'imgspasteis/pastelpalmito.png',         n: 'Palmito',                d: 'Palmito pupunha refogado com temperos especiais da casa.', p: 13.00 },
   ],
   'pasteis-doc': [
-    { id: 'pd1', img: 'imgspasteis/pastelbanacomcenala.png',   n: 'Banana com Canela',   d: 'Banana nanica fresca caramelada com canela e açúcar cristal.', p: 13.00 },
-    { id: 'pd2', img: 'imgspasteis/pastelromeuejulieta.png',   n: 'Romeu e Julieta',     d: 'Goiabada cremosa com queijo minas fresquinho — combinação clássica.', p: 13.00 },
-    { id: 'pd3', img: 'imgspasteis/pastelnutela.png',          n: 'Nutella',             d: 'Recheio generoso da legítima Nutella quentinha.', p: 13.00, t: 'Novo' },
-    { id: 'pd4', img: 'imgspasteis/pasteldocedeleite.png',     n: 'Doce de Leite',       d: 'Doce de leite argentino com toque de canela.', p: 13.00 },
+    { id: 'pd1', img: 'imgspasteis/pastelbanacomcenala.png',   n: 'Banana com Canela',      d: 'Banana nanica fresca caramelada com canela e açúcar cristal.', p: 13.00 },
+    { id: 'pd2', img: 'imgspasteis/pastelromeuejulieta.png',   n: 'Romeu e Julieta',        d: 'Goiabada cremosa com queijo minas fresquinho — combinação clássica.', p: 13.00 },
+    { id: 'pd3', img: 'imgspasteis/pastelnutela.png',          n: 'Nutella',                d: 'Recheio generoso da legítima Nutella quentinha.', p: 13.00, t: 'Novo' },
+    { id: 'pd4', img: 'imgspasteis/pasteldocedeleite.png',     n: 'Doce de Leite',          d: 'Doce de leite argentino com toque de canela.', p: 13.00 },
   ],
-  'sal-fritos': [
-    { id: 'sf1', img: 'imgspasteis/COXINHA.png',               n: 'Coxinha',             d: 'Massa de batata recheada com frango e catupiry, crocante por fora.', p: 6.00, t: 'Destaque' },
-    { id: 'sf2', img: 'imgspasteis/coxinhacatupiry.png',       n: 'Coxinha Catupiry',    d: 'Coxinha recheada com frango e o verdadeiro Catupiry cremoso.', p: 7.00 },
-    { id: 'sf3', img: 'imgspasteis/mocoquinha.png',            n: 'Mocoquinha',          d: 'Bolinho crocante com recheio cremoso de mocotó temperado.', p: 6.00 },
-    { id: 'sf4', img: 'imgspasteis/risolepresuntoequeijo.png', n: 'Risole de Presunto',  d: 'Risole crocante recheado com presunto e queijo derretido.', p: 6.00 },
-    { id: 'sf5', img: 'imgspasteis/salsicha.png',              n: 'Enroladinho',         d: 'Salsicha artesanal em massa folhada crocante.', p: 4.50 },
-    { id: 'sf6', img: 'imgspasteis/bolinho de queijo.png',     n: 'Bolinho de Queijo',   d: 'Bolinho frito recheado com queijo derretido, crocante por fora.', p: 5.00 },
-  ],
-  'sal-assados': [
-    { id: 'sa1', img: 'imgspasteis/salsicha.png',              n: 'Enroladinho Assado',  d: 'Salsicha em massa folhada assada na hora, douradinha e crocante.', p: 4.50 },
+  'salgados': [
+    { id: 'sg1', img: 'imgspasteis/COXINHA.png',               n: 'Coxinha',                d: 'Massa de batata recheada com frango e catupiry, crocante por fora.', p: 6.00, t: 'Destaque' },
+    { id: 'sg2', img: 'imgspasteis/coxinhacatupiry.png',       n: 'Coxinha Catupiry',       d: 'Coxinha recheada com frango e o verdadeiro Catupiry cremoso.', p: 7.00 },
+    { id: 'sg3', img: 'imgspasteis/mocoquinha.png',            n: 'Mocoquinha',             d: 'Bolinho crocante com recheio cremoso de mocotó temperado.', p: 6.00 },
+    { id: 'sg4', img: 'imgspasteis/risolepresuntoequeijo.png', n: 'Risole de Presunto',     d: 'Risole crocante recheado com presunto e queijo derretido.', p: 6.00 },
+    { id: 'sg5', img: 'imgspasteis/salsicha.png',              n: 'Enroladinho',            d: 'Salsicha artesanal em massa folhada crocante.', p: 4.50 },
+    { id: 'sg6', img: 'imgspasteis/bolinho de queijo.png',     n: 'Bolinho de Queijo',      d: 'Bolinho frito recheado com queijo derretido, crocante por fora.', p: 5.00 },
   ],
 };
 
 const catLabels = {
-  'pasteis-sal': 'Pastéis Salgados',
-  'pasteis-doc': 'Pastéis Doces',
-  'sal-fritos':  'Salgados Fritos',
-  'sal-assados': 'Salgados Assados',
+  'espetinhos':  'Espetinhos',
+  'pasteis-sal': 'Pastéis',
+  'pasteis-doc': 'Doces',
+  'salgados':    'Salgados',
 };
 
 /* ══════════════════════════════════════════
@@ -50,7 +53,7 @@ let observer  = null;
    INICIALIZAÇÃO
 ══════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
-  const CATALOG_VERSION = '4';
+  const CATALOG_VERSION = '5';
   if (localStorage.getItem('pastel_catalog_v') !== CATALOG_VERSION) {
     localStorage.setItem('pastel_catalog', JSON.stringify(defaultData));
     localStorage.setItem('pastel_catalog_v', CATALOG_VERSION);
