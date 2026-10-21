@@ -322,6 +322,42 @@ function animateBadge() {
   const b = document.getElementById('cart-count');
   b.style.transform = 'scale(1.5)';
   setTimeout(() => b.style.transform = 'scale(1)', 200);
+  playCartSound();
+}
+
+/* ── Som de adição ao carrinho (Web Audio API, sem arquivo externo) ── */
+function playCartSound() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+
+    const playTone = (freq, startTime, duration, gainVal) => {
+      const osc  = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, startTime);
+
+      gain.gain.setValueAtTime(0, startTime);
+      gain.gain.linearRampToValueAtTime(gainVal, startTime + 0.01);
+      gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
+
+      osc.start(startTime);
+      osc.stop(startTime + duration);
+    };
+
+    const t = ctx.currentTime;
+    // Dois tons rápidos — "pop pop" suave
+    playTone(880, t,        0.10, 0.18);  // Lá5 — primeiro pop
+    playTone(1320, t + 0.09, 0.12, 0.14); // Mi6 — segundo pop mais agudo
+
+    // Fecha o contexto após o som acabar
+    setTimeout(() => ctx.close(), 400);
+  } catch {
+    // Silencia erros em browsers que bloqueiam áudio
+  }
 }
 
 function updateCart() {
