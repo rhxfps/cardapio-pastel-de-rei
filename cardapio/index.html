@@ -10,7 +10,7 @@
 <body>
   <div class="app">
 
-    <!-- TOP BAR - logo + carrinho -->
+    <!-- TOP BAR - logo + busca + carrinho -->
     <header class="top-bar">
       <div class="top-bar-inner">
         <div class="top-bar-logo">
@@ -18,11 +18,26 @@
         </div>
         <span class="top-bar-title">Pastel de Rei</span>
       </div>
+      <button id="search-toggle" class="top-bar-icon-btn" title="Buscar">
+        <i data-lucide="search"></i>
+      </button>
       <button id="cart-toggle" class="top-bar-cart" title="Ver carrinho">
         <i data-lucide="shopping-cart"></i>
         <span id="cart-count" class="cart-badge">0</span>
       </button>
     </header>
+
+    <!-- PAINEL DE BUSCA -->
+    <div id="search-panel" class="search-panel">
+      <div class="search-input-wrap">
+        <i data-lucide="search" class="search-icon"></i>
+        <input id="search-input" type="text" placeholder="Buscar item..." autocomplete="off" />
+        <button id="search-close" class="search-clear" title="Fechar">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
 
     <!-- FILTROS DE CATEGORIA -->
     <nav class="category-nav" id="category-nav">

@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('cart-toggle').addEventListener('click', () => openModal('cart-modal'));
   document.getElementById('checkout-btn').addEventListener('click', openCheckout);
+  initSearch();
   setupMasks();
 
   window.addEventListener('click', e => {
@@ -549,6 +550,105 @@ async function sendWhatsAppOrder() {
   }, 2200);
 }
 
+
+/* ══════════════════════════════════════════
+   BUSCA
+══════════════════════════════════════════ */
+function initSearch() {
+  const toggle  = document.getElementById('search-toggle');
+  const panel   = document.getElementById('search-panel');
+  const input   = document.getElementById('search-input');
+  const closeBtn= document.getElementById('search-close');
+  const results = document.getElementById('search-results');
+
+  /* abre/fecha painel */
+  toggle.addEventListener('click', () => {
+    const isOpen = panel.classList.toggle('open');
+    if (isOpen) {
+      setTimeout(() => input.focus(), 50);
+    } else {
+      input.value = '';
+      results.innerHTML = '';
+    }
+    if (window.lucide) lucide.createIcons();
+  });
+
+  closeBtn.addEventListener('click', () => {
+    panel.classList.remove('open');
+    input.value = '';
+    results.innerHTML = '';
+  });
+
+  /* fecha ao clicar fora */
+  document.addEventListener('click', e => {
+    if (!panel.contains(e.target) && e.target !== toggle) {
+      panel.classList.remove('open');
+      input.value = '';
+      results.innerHTML = '';
+    }
+  });
+
+  /* busca em tempo real */
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    results.innerHTML = '';
+
+    if (!q) return;
+
+    const matches = allItems.filter(item =>
+      item.n.toLowerCase().includes(q) ||
+      item.d.toLowerCase().includes(q) ||
+      (catLabels[item.cat] || '').toLowerCase().includes(q)
+    );
+
+    if (!matches.length) {
+      results.innerHTML = `<div class="search-no-results">Nenhum resultado para "<strong>${input.value}</strong>"</div>`;
+      return;
+    }
+
+    results.innerHTML = matches.map(item => {
+      const thumbHtml = item.img
+        ? `<img class="search-result-thumb" src="${item.img}" alt="${escHtml(item.n)}">`
+        : `<div class="search-result-thumb" style="display:flex;align-items:center;justify-content:center;"><i data-lucide="utensils" style="width:20px;height:20px;opacity:.35"></i></div>`;
+
+      return `
+        <div class="search-result-item" onclick="goToItem('${item.id}')">
+          ${thumbHtml}
+          <div class="search-result-info">
+            <span class="search-result-name">${item.n}</span>
+            <span class="search-result-cat">${catLabels[item.cat] || item.cat}</span>
+          </div>
+          <span class="search-result-price">R$ ${formatPrice(item.p)}</span>
+        </div>`;
+    }).join('');
+
+    if (window.lucide) lucide.createIcons();
+  });
+}
+
+/* Navega até o slide do item no feed */
+function goToItem(itemId) {
+  const panel = document.getElementById('search-panel');
+  const input = document.getElementById('search-input');
+
+  /* garante que a categoria "Todos" está ativa para o item aparecer */
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.cat-btn[data-cat="all"]').classList.add('active');
+  renderFeed('all');
+
+  /* espera o feed renderizar e scrolla até o slide */
+  requestAnimationFrame(() => {
+    const feed  = document.getElementById('tiktok-feed');
+    const slide = feed.querySelector(`[data-id="${itemId}"]`);
+    if (slide) {
+      slide.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    /* fecha painel */
+    panel.classList.remove('open');
+    input.value = '';
+    document.getElementById('search-results').innerHTML = '';
+  });
+}
 
 /* ══════════════════════════════════════════
    MÁSCARAS

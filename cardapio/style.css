@@ -86,6 +86,23 @@ html, body {
   padding-right: 2px;
 }
 
+/* Botão genérico de ícone na topbar (lupa, etc.) */
+.top-bar-icon-btn {
+  position: relative;
+  width: 36px; height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.1);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background .18s ease, transform .18s ease;
+  flex-shrink: 0;
+}
+.top-bar-icon-btn:hover  { background: rgba(255,255,255,.2); }
+.top-bar-icon-btn:active { transform: scale(.96); }
+.top-bar-icon-btn i      { width: 17px; height: 17px; stroke-width: 2.2; }
+
 /* Botão carrinho dentro da topbar */
 .top-bar-cart {
   position: relative;
@@ -811,6 +828,155 @@ html, body {
 }
 .confirm-btn:active { transform: scale(.985); }
 .confirm-btn i { width: 20px; height: 20px; }
+
+/* ══════════════════════════════════════════
+   PAINEL DE BUSCA
+══════════════════════════════════════════ */
+.search-panel {
+  position: fixed;
+  top: max(60px, calc(env(safe-area-inset-top,0) + 60px));
+  left: 50%;
+  transform: translateX(-50%) translateY(-12px);
+  width: min(480px, calc(100vw - 24px));
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+}
+
+.search-panel.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* campo de input */
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  height: 48px;
+  border-radius: 999px;
+  background: rgba(14,14,14,.75);
+  border: 1px solid rgba(255,255,255,.2);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  box-shadow: 0 16px 60px -20px rgba(0,0,0,.9),
+              inset 0 1px 0 rgba(255,255,255,.1);
+}
+
+.search-icon {
+  width: 17px; height: 17px;
+  color: rgba(255,255,255,.5);
+  flex-shrink: 0;
+}
+
+#search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: inherit;
+  font-size: .97rem;
+  font-weight: 500;
+}
+
+#search-input::placeholder { color: rgba(255,255,255,.38); }
+
+.search-clear {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.45);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  padding: 4px;
+  border-radius: 999px;
+  transition: color .15s, background .15s;
+  flex-shrink: 0;
+}
+.search-clear:hover { color: #fff; background: rgba(255,255,255,.1); }
+.search-clear i { width: 16px; height: 16px; }
+
+/* lista de resultados */
+.search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 52dvh;
+  overflow-y: auto;
+  scrollbar-width: none;
+  overscroll-behavior: contain;
+}
+.search-results:empty { display: none; }
+.search-results::-webkit-scrollbar { display: none; }
+
+/* cada resultado */
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 18px;
+  background: rgba(14,14,14,.78);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  cursor: pointer;
+  transition: background .18s ease;
+}
+.search-result-item:hover { background: rgba(255,255,255,.1); }
+
+.search-result-thumb {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: rgba(255,255,255,.08);
+}
+
+.search-result-info {
+  flex: 1; min-width: 0;
+  display: flex; flex-direction: column; gap: 2px;
+}
+
+.search-result-name {
+  font-weight: 700;
+  font-size: .95rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+.search-result-cat {
+  font-size: .72rem;
+  color: rgba(255,255,255,.45);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.search-result-price {
+  font-size: .95rem;
+  font-weight: 800;
+  color: var(--secondary);
+  flex-shrink: 0;
+}
+
+.search-no-results {
+  text-align: center;
+  padding: 18px;
+  color: rgba(255,255,255,.4);
+  font-size: .9rem;
+  background: rgba(14,14,14,.78);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 18px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
 
 /* ══════════════════════════════════════════
    RESPONSIVO
