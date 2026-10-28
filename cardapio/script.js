@@ -34,6 +34,9 @@ const defaultData = {
   ],
 };
 
+/* URL da API do gerenciarstock */
+const ADMIN_API = 'https://gerenciarestoque.vercel.app';
+
 const catLabels = {
   'espetinhos':  'Espetinhos',
   'pasteis-sal': 'Pastéis',
@@ -52,14 +55,22 @@ let observer  = null;
 /* ══════════════════════════════════════════
    INICIALIZAÇÃO
 ══════════════════════════════════════════ */
-document.addEventListener('DOMContentLoaded', () => {
-  const CATALOG_VERSION = '5';
-  if (localStorage.getItem('pastel_catalog_v') !== CATALOG_VERSION) {
-    localStorage.setItem('pastel_catalog', JSON.stringify(defaultData));
-    localStorage.setItem('pastel_catalog_v', CATALOG_VERSION);
-  }
-  data = JSON.parse(localStorage.getItem('pastel_catalog')) || defaultData;
+document.addEventListener('DOMContentLoaded', async () => {
+  showFeedLoader(true);
 
+  /* Tenta buscar da API; usa defaultData como fallback */
+  try {
+    const apiItems = await fetchCardapioAPI();
+    if (apiItems && apiItems.length) {
+      data = apiToData(apiItems);
+    } else {
+      data = defaultData;
+    }
+  } catch {
+    data = defaultData;
+  }
+
+  showFeedLoader(false);
   buildFlatList();
   renderFeed('all');
 
@@ -82,6 +93,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (window.lucide) lucide.createIcons();
 });
+
+/* ══════════════════════════════════════════
+   API DO GERENCIARSTOCK
+══════════════════════════════════════════ */
+
+/* Busca itens da API pública do gerenciarstock */
+async function fetchCardapioAPI() {
+  const res = await fetch(`${ADMIN_API}/api/cardapio`, { cache: 'no-store' });
+  if (!res.ok) throw new Error(`API ${res.status}`);
+  return res.json();
+}
+
+/* Converte array flat da API → objeto { categoria: [items] } */
+function apiToData(items) {
+  const result = {};
+  items.forEach(item => {
+    const cat = item.categoria || 'salgados';
+    if (!result[cat]) result[cat] = [];
+    result[cat].push({
+      id:  String(item.id),
+      n:   item.nome,
+      d:   item.descricao || '',
+      p:   parseFloat(item.preco) || 0,
+      img: item.img_url || '',
+      t:   item.tag || undefined,
+      cat,
+    });
+  });
+  return result;
+}
+
+/* Spinner simples no feed enquanto carrega */
+function showFeedLoader(show) {
+  const feed = document.getElementById('tiktok-feed');
+  if (show) {
+    feed.innerHTML = `
+      <div style="height:100dvh;width:100vw;display:flex;flex-direction:column;
+                  align-items:center;justify-content:center;gap:16px;color:rgba(255,255,255,.5)">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" style="animation:spin 1s linear infinite">
+          <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+        </svg>
+        <span style="font-size:.9rem;letter-spacing:1px">Carregando cardápio...</span>
+      </div>`;
+  }
+}
 
 /* ══════════════════════════════════════════
    LISTA FLAT
