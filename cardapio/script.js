@@ -562,10 +562,11 @@ function initSearch() {
   const results = document.getElementById('search-results');
 
   /* abre/fecha painel */
-  toggle.addEventListener('click', () => {
+  toggle.addEventListener('click', e => {
+    e.stopPropagation();
     const isOpen = panel.classList.toggle('open');
     if (isOpen) {
-      setTimeout(() => input.focus(), 50);
+      setTimeout(() => input.focus(), 80);
     } else {
       input.value = '';
       results.innerHTML = '';
@@ -579,9 +580,11 @@ function initSearch() {
     results.innerHTML = '';
   });
 
-  /* fecha ao clicar fora — usa closest para pegar cliques em filhos do toggle */
+  /* fecha ao clicar fora — usa closest para lidar com SVG do Lucide */
   document.addEventListener('click', e => {
-    if (!panel.contains(e.target) && !toggle.contains(e.target)) {
+    const clickedToggle = e.target.closest('#search-toggle');
+    const clickedPanel  = e.target.closest('#search-panel');
+    if (!clickedToggle && !clickedPanel) {
       panel.classList.remove('open');
       input.value = '';
       results.innerHTML = '';
