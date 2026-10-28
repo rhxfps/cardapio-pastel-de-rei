@@ -579,9 +579,9 @@ function initSearch() {
     results.innerHTML = '';
   });
 
-  /* fecha ao clicar fora */
+  /* fecha ao clicar fora — usa closest para pegar cliques em filhos do toggle */
   document.addEventListener('click', e => {
-    if (!panel.contains(e.target) && e.target !== toggle) {
+    if (!panel.contains(e.target) && !toggle.contains(e.target)) {
       panel.classList.remove('open');
       input.value = '';
       results.innerHTML = '';
